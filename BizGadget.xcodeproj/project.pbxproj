@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF320BD32120AFE90072B79D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF320BD22120AFE90072B79D /* AppDelegate.swift */; };
+		BF320BD52120AFE90072B79D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF320BD42120AFE90072B79D /* ViewController.swift */; };
+		BF320BD82120AFE90072B79D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF320BD62120AFE90072B79D /* Main.storyboard */; };
+		BF320BDB2120AFE90072B79D /* BizGadget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF320BD92120AFE90072B79D /* BizGadget.xcdatamodeld */; };
+		BF320BDD2120AFE90072B79D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF320BDC2120AFE90072B79D /* Assets.xcassets */; };
+		BF320BE02120AFE90072B79D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF320BDE2120AFE90072B79D /* LaunchScreen.storyboard */; };
+		BF320BEB2120AFEA0072B79D /* BizGadgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF320BEA2120AFEA0072B79D /* BizGadgetTests.swift */; };
+		BF320BF62120AFEA0072B79D /* BizGadgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF320BF52120AFEA0072B79D /* BizGadgetUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF320BE72120AFEA0072B79D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF320BC72120AFE90072B79D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF320BCE2120AFE90072B79D;
+			remoteInfo = BizGadget;
+		};
+		BF320BF22120AFEA0072B79D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF320BC72120AFE90072B79D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF320BCE2120AFE90072B79D;
+			remoteInfo = BizGadget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF320BCF2120AFE90072B79D /* BizGadget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BizGadget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF320BD22120AFE90072B79D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF320BD42120AFE90072B79D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF320BD72120AFE90072B79D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF320BDA2120AFE90072B79D /* BizGadget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BizGadget.xcdatamodel; sourceTree = "<group>"; };
+		BF320BDC2120AFE90072B79D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF320BDF2120AFE90072B79D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF320BE12120AFE90072B79D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF320BE62120AFEA0072B79D /* BizGadgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BizGadgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF320BEA2120AFEA0072B79D /* BizGadgetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BizGadgetTests.swift; sourceTree = "<group>"; };
+		BF320BEC2120AFEA0072B79D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF320BF12120AFEA0072B79D /* BizGadgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BizGadgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF320BF52120AFEA0072B79D /* BizGadgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BizGadgetUITests.swift; sourceTree = "<group>"; };
+		BF320BF72120AFEA0072B79D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF320BCC2120AFE90072B79D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF320BE32120AFEA0072B79D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF320BEE2120AFEA0072B79D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF320BC62120AFE90072B79D = {
+			isa = PBXGroup;
+			children = (
+				BF320BD12120AFE90072B79D /* BizGadget */,
+				BF320BE92120AFEA0072B79D /* BizGadgetTests */,
+				BF320BF42120AFEA0072B79D /* BizGadgetUITests */,
+				BF320BD02120AFE90072B79D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF320BD02120AFE90072B79D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF320BCF2120AFE90072B79D /* BizGadget.app */,
+				BF320BE62120AFEA0072B79D /* BizGadgetTests.xctest */,
+				BF320BF12120AFEA0072B79D /* BizGadgetUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF320BD12120AFE90072B79D /* BizGadget */ = {
+			isa = PBXGroup;
+			children = (
+				BF320BD22120AFE90072B79D /* AppDelegate.swift */,
+				BF320BD42120AFE90072B79D /* ViewController.swift */,
+				BF320BD62120AFE90072B79D /* Main.storyboard */,
+				BF320BDC2120AFE90072B79D /* Assets.xcassets */,
+				BF320BDE2120AFE90072B79D /* LaunchScreen.storyboard */,
+				BF320BE12120AFE90072B79D /* Info.plist */,
+				BF320BD92120AFE90072B79D /* BizGadget.xcdatamodeld */,
+			);
+			path = BizGadget;
+			sourceTree = "<group>";
+		};
+		BF320BE92120AFEA0072B79D /* BizGadgetTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF320BEA2120AFEA0072B79D /* BizGadgetTests.swift */,
+				BF320BEC2120AFEA0072B79D /* Info.plist */,
+			);
+			path = BizGadgetTests;
+			sourceTree = "<group>";
+		};
+		BF320BF42120AFEA0072B79D /* BizGadgetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF320BF52120AFEA0072B79D /* BizGadgetUITests.swift */,
+				BF320BF72120AFEA0072B79D /* Info.plist */,
+			);
+			path = BizGadgetUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF320BCE2120AFE90072B79D /* BizGadget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF320BFA2120AFEA0072B79D /* Build configuration list for PBXNativeTarget "BizGadget" */;
+			buildPhases = (
+				BF320BCB2120AFE90072B79D /* Sources */,
+				BF320BCC2120AFE90072B79D /* Frameworks */,
+				BF320BCD2120AFE90072B79D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BizGadget;
+			productName = BizGadget;
+			productReference = BF320BCF2120AFE90072B79D /* BizGadget.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF320BE52120AFEA0072B79D /* BizGadgetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF320BFD2120AFEA0072B79D /* Build configuration list for PBXNativeTarget "BizGadgetTests" */;
+			buildPhases = (
+				BF320BE22120AFEA0072B79D /* Sources */,
+				BF320BE32120AFEA0072B79D /* Frameworks */,
+				BF320BE42120AFEA0072B79D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF320BE82120AFEA0072B79D /* PBXTargetDependency */,
+			);
+			name = BizGadgetTests;
+			productName = BizGadgetTests;
+			productReference = BF320BE62120AFEA0072B79D /* BizGadgetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF320BF02120AFEA0072B79D /* BizGadgetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF320C002120AFEA0072B79D /* Build configuration list for PBXNativeTarget "BizGadgetUITests" */;
+			buildPhases = (
+				BF320BED2120AFEA0072B79D /* Sources */,
+				BF320BEE2120AFEA0072B79D /* Frameworks */,
+				BF320BEF2120AFEA0072B79D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF320BF32120AFEA0072B79D /* PBXTargetDependency */,
+			);
+			name = BizGadgetUITests;
+			productName = BizGadgetUITests;
+			productReference = BF320BF12120AFEA0072B79D /* BizGadgetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF320BC72120AFE90072B79D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Yogesh date";
+				TargetAttributes = {
+					BF320BCE2120AFE90072B79D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					BF320BE52120AFEA0072B79D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BF320BCE2120AFE90072B79D;
+					};
+					BF320BF02120AFEA0072B79D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BF320BCE2120AFE90072B79D;
+					};
+				};
+			};
+			buildConfigurationList = BF320BCA2120AFE90072B79D /* Build configuration list for PBXProject "BizGadget" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF320BC62120AFE90072B79D;
+			productRefGroup = BF320BD02120AFE90072B79D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF320BCE2120AFE90072B79D /* BizGadget */,
+				BF320BE52120AFEA0072B79D /* BizGadgetTests */,
+				BF320BF02120AFEA0072B79D /* BizGadgetUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF320BCD2120AFE90072B79D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF320BE02120AFE90072B79D /* LaunchScreen.storyboard in Resources */,
+				BF320BDD2120AFE90072B79D /* Assets.xcassets in Resources */,
+				BF320BD82120AFE90072B79D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF320BE42120AFEA0072B79D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF320BEF2120AFEA0072B79D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF320BCB2120AFE90072B79D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF320BDB2120AFE90072B79D /* BizGadget.xcdatamodeld in Sources */,
+				BF320BD52120AFE90072B79D /* ViewController.swift in Sources */,
+				BF320BD32120AFE90072B79D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF320BE22120AFEA0072B79D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF320BEB2120AFEA0072B79D /* BizGadgetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF320BED2120AFEA0072B79D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF320BF62120AFEA0072B79D /* BizGadgetUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF320BE82120AFEA0072B79D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF320BCE2120AFE90072B79D /* BizGadget */;
+			targetProxy = BF320BE72120AFEA0072B79D /* PBXContainerItemProxy */;
+		};
+		BF320BF32120AFEA0072B79D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF320BCE2120AFE90072B79D /* BizGadget */;
+			targetProxy = BF320BF22120AFEA0072B79D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF320BD62120AFE90072B79D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF320BD72120AFE90072B79D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF320BDE2120AFE90072B79D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF320BDF2120AFE90072B79D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF320BF82120AFEA0072B79D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF320BF92120AFEA0072B79D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF320BFB2120AFEA0072B79D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQM95WCWBR;
+				INFOPLIST_FILE = BizGadget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BizGadget.BizGadget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF320BFC2120AFEA0072B79D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQM95WCWBR;
+				INFOPLIST_FILE = BizGadget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BizGadget.BizGadget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF320BFE2120AFEA0072B79D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQM95WCWBR;
+				INFOPLIST_FILE = BizGadgetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BizGadget.BizGadgetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BizGadget.app/BizGadget";
+			};
+			name = Debug;
+		};
+		BF320BFF2120AFEA0072B79D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQM95WCWBR;
+				INFOPLIST_FILE = BizGadgetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BizGadget.BizGadgetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BizGadget.app/BizGadget";
+			};
+			name = Release;
+		};
+		BF320C012120AFEA0072B79D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQM95WCWBR;
+				INFOPLIST_FILE = BizGadgetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BizGadget.BizGadgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BizGadget;
+			};
+			name = Debug;
+		};
+		BF320C022120AFEA0072B79D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQM95WCWBR;
+				INFOPLIST_FILE = BizGadgetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BizGadget.BizGadgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BizGadget;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF320BCA2120AFE90072B79D /* Build configuration list for PBXProject "BizGadget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF320BF82120AFEA0072B79D /* Debug */,
+				BF320BF92120AFEA0072B79D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF320BFA2120AFEA0072B79D /* Build configuration list for PBXNativeTarget "BizGadget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF320BFB2120AFEA0072B79D /* Debug */,
+				BF320BFC2120AFEA0072B79D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF320BFD2120AFEA0072B79D /* Build configuration list for PBXNativeTarget "BizGadgetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF320BFE2120AFEA0072B79D /* Debug */,
+				BF320BFF2120AFEA0072B79D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF320C002120AFEA0072B79D /* Build configuration list for PBXNativeTarget "BizGadgetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF320C012120AFEA0072B79D /* Debug */,
+				BF320C022120AFEA0072B79D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BF320BD92120AFE90072B79D /* BizGadget.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF320BDA2120AFE90072B79D /* BizGadget.xcdatamodel */,
+			);
+			currentVersion = BF320BDA2120AFE90072B79D /* BizGadget.xcdatamodel */;
+			path = BizGadget.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BF320BC72120AFE90072B79D /* Project object */;
+}
