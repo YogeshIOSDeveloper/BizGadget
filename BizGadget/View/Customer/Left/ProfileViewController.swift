@@ -1,14 +1,14 @@
 //
-//  SignUpViewController.swift
+//  ProfileViewController.swift
 //  BizGadget
 //
-//  Created by Yogesh Date on 13/08/18.
+//  Created by Yogesh Date on 17/08/18.
 //  Copyright © 2018 Yogesh date. All rights reserved.
 //
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
