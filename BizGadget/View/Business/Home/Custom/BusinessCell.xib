@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellBusiness" rowHeight="190" id="KGk-i7-Jjw" customClass="BusinessCell" customModule="BizGadget" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="115"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="370" height="114.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="js6-ed-b9D">
+                        <rect key="frame" x="5" y="10" width="85" height="95"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePizzaHut" translatesAutoresizingMaskIntoConstraints="NO" id="7AW-jW-QIF">
+                                <rect key="frame" x="5" y="5" width="75" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="FBG-03-A1S"/>
+                                    <constraint firstAttribute="height" constant="85" id="cMz-6Z-AIm"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="95" id="1Ca-68-2rz"/>
+                            <constraint firstAttribute="trailing" secondItem="7AW-jW-QIF" secondAttribute="trailing" constant="5" id="47V-17-hd2"/>
+                            <constraint firstAttribute="bottom" secondItem="7AW-jW-QIF" secondAttribute="bottom" constant="5" id="Bx2-9Y-rk6"/>
+                            <constraint firstAttribute="width" constant="85" id="SJW-wi-GYr"/>
+                            <constraint firstItem="7AW-jW-QIF" firstAttribute="top" secondItem="js6-ed-b9D" secondAttribute="top" constant="5" id="ah0-kf-Nuq"/>
+                            <constraint firstItem="7AW-jW-QIF" firstAttribute="leading" secondItem="js6-ed-b9D" secondAttribute="leading" constant="5" id="sy2-PD-QnU"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UM8-Il-OAX">
+                        <rect key="frame" x="100" y="10" width="260" height="95"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morbi per tincidunt tellus site of amet eros laoreet name Yogesh anile date MCA pune" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abp-s0-pKb">
+                                <rect key="frame" x="8" y="8" width="244" height="62"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n61-oG-Qwd">
+                                <rect key="frame" x="230" y="71" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="ElZ-kG-UjQ"/>
+                                    <constraint firstAttribute="height" constant="20" id="Inx-7H-L0w"/>
+                                </constraints>
+                                <state key="normal" image="imageDelete"/>
+                                <connections>
+                                    <action selector="btnDelete:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BOn-86-4F6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhY-Ht-yov">
+                                <rect key="frame" x="195" y="71" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="kwx-QR-H1T"/>
+                                    <constraint firstAttribute="height" constant="20" id="wb2-0o-wBE"/>
+                                </constraints>
+                                <state key="normal" image="imageEdit"/>
+                                <connections>
+                                    <action selector="btnEdit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="EuK-i2-5Qp"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 hrs ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B8-wr-dCj">
+                                <rect key="frame" x="10" y="76.5" width="49.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="abp-s0-pKb" secondAttribute="trailing" constant="8" id="0p1-78-Trz"/>
+                            <constraint firstAttribute="bottom" secondItem="abp-s0-pKb" secondAttribute="bottom" constant="25" id="Qv1-Nh-VEc"/>
+                            <constraint firstItem="UhY-Ht-yov" firstAttribute="centerY" secondItem="n61-oG-Qwd" secondAttribute="centerY" id="aBe-Zh-bEU"/>
+                            <constraint firstAttribute="bottom" secondItem="n61-oG-Qwd" secondAttribute="bottom" constant="4" id="aCt-Ti-Le8"/>
+                            <constraint firstAttribute="trailing" secondItem="n61-oG-Qwd" secondAttribute="trailing" constant="10" id="aYE-mo-I7U"/>
+                            <constraint firstItem="abp-s0-pKb" firstAttribute="top" secondItem="UM8-Il-OAX" secondAttribute="top" constant="8" id="mKl-uo-wO7"/>
+                            <constraint firstItem="0B8-wr-dCj" firstAttribute="leading" secondItem="UM8-Il-OAX" secondAttribute="leading" constant="10" id="tDP-Tt-x2V"/>
+                            <constraint firstItem="n61-oG-Qwd" firstAttribute="leading" secondItem="UhY-Ht-yov" secondAttribute="trailing" constant="15" id="tUG-3Q-rmu"/>
+                            <constraint firstItem="abp-s0-pKb" firstAttribute="leading" secondItem="UM8-Il-OAX" secondAttribute="leading" constant="8" id="ycM-2q-nnw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UM8-Il-OAX" firstAttribute="centerY" secondItem="js6-ed-b9D" secondAttribute="centerY" id="0FJ-Ye-WeV"/>
+                    <constraint firstItem="UM8-Il-OAX" firstAttribute="height" secondItem="js6-ed-b9D" secondAttribute="height" id="R8G-3j-1ZR"/>
+                    <constraint firstItem="0B8-wr-dCj" firstAttribute="bottom" secondItem="7AW-jW-QIF" secondAttribute="bottom" id="RJa-Yb-cSS"/>
+                    <constraint firstAttribute="trailing" secondItem="UM8-Il-OAX" secondAttribute="trailing" constant="10" id="dMa-4Q-qo1"/>
+                    <constraint firstItem="js6-ed-b9D" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iSF-X5-tNe"/>
+                    <constraint firstItem="UM8-Il-OAX" firstAttribute="leading" secondItem="js6-ed-b9D" secondAttribute="trailing" constant="10" id="pA4-Ud-7aC"/>
+                    <constraint firstItem="js6-ed-b9D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="xf4-W7-sNB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imagePhoto" destination="7AW-jW-QIF" id="4ek-uR-jov"/>
+                <outlet property="lblDate" destination="0B8-wr-dCj" id="7Ao-rg-UOJ"/>
+                <outlet property="lblTitle" destination="abp-s0-pKb" id="WsJ-6v-7rh"/>
+            </connections>
+            <point key="canvasLocation" x="32" y="119.1904047976012"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="imageDelete" width="60" height="60"/>
+        <image name="imageEdit" width="60" height="60"/>
+        <image name="imagePizzaHut" width="242" height="208"/>
+    </resources>
+</document>

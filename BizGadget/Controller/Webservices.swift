@@ -21,14 +21,30 @@ class Webservices: NSObject {
         "Content-Type":"application/x-www-form-urlencoded"
     ]
     
+    //1 Signin   ===> DONE
+    //2 SignUp Consumer  ==== > Not Working == >> Data parsing remainig
+    //3 SignUp Business ==== > Not Working === >> Data Parsing remaning
+    //4 category_list ==== > Working
+    
+    //6 get_profile ====> Not Implementation ===> Working ===> Data parsing Remainig
+    //7 tag_list ======> Working =====>  Data parsing remainig
+    
+    //8 commons/feeds call home consumnerHome
+    //===>
+    
+    
+    
+    // BUSINESSS
+    //9 feeds
+    //5 create_feed  ====> Not Implementation ===> Not Working  == >> Data parsing remaining
+    // 10 delete business feed
     //1 Signin
-    //2 SignUp Consumer
-    //3 SignUp Business
-    //4 category_list
     
     
-    
-    //1 Signin
+    // CONSUMER
+
+
+
     func Signin(username: String,
                 password: String,
                 success: @escaping(_ success: User)-> Void,
@@ -209,14 +225,15 @@ class Webservices: NSObject {
         
         
        //4 category_list
-        func categoryList(success: @escaping(_ success: [category_data])-> Void,
+    func categoryList(header:[String:String],
+        success: @escaping(_ success: [category_data])-> Void,
                           failure: @escaping(_ failure: String)->Void) {
-            
+        
             Alamofire.request("\(WEB_API_URL)category_list",
                 method: .get,
                 parameters: nil,
                 encoding: URLEncoding.default,
-                headers: headers).responseJSON {
+                headers: header).responseJSON {
                     response in
                     print("categoryList Response = \(response.result.value ?? "Not Null")")
                     if response.result.isSuccess {
@@ -242,13 +259,313 @@ class Webservices: NSObject {
                     }
             }
         }
-        
     
+    
+    
+
+    
+     //6 get_profile
+    func getProfile(headerParam:[String:String],
+                    success:@escaping(_ success: String)-> Void,
+                    failure:@escaping(_ failure:String)-> Void) {
         
+        Alamofire.request("\(WEB_API_URL)get_profile",
+            method: .post,
+            parameters: nil,
+            encoding: URLEncoding.default,
+            headers: headerParam).responseJSON {
+                response in
+                print("get_profile Response = \(response.result.value ?? "Not yet")")
+        }
+    }
+    
+    
+    
+    
+    
+    //7 tag_list
+    func tagLidt(headerParam:[String: String],
+                 success:@escaping(_ success: [String])->Void,
+                 failure:@escaping(_ failure:String)->Void) {
         
+        Alamofire.request("\(WEB_API_URL)tag_list",
+            method: .post,
+            parameters: nil,
+            encoding: URLEncoding.default,
+            headers: headerParam).responseJSON {
+                response in
+                print("Response tag_list =\(response.result.value ?? "Error")")
+                if response.result.isSuccess {
+                    
+                    guard let data = response.data else {
+                        failure("No data found")
+                        return
+                    }
+                    
+                    do {
+                        let tagList = try JSONDecoder().decode(TagList.self, from: data)
+                        if tagList.messsage == nil {
+                            success(tagList.list!)
+                        } else {
+                            failure("Json Error...")
+                        }
+                    }  catch {
+                        failure("Json Error")
+                    }
+                }
+                
+                if response.result.isFailure {
+                    failure(response.result.error?.localizedDescription ?? "ERROR")
+                }
+        }
+    }
+
+    
+    
+    //5 create_feed
+    func createNewFeed(title: String,
+                       detail: String,
+                       category: String,
+                       date: String,
+                       latitude: String,
+                       longitude: String,
+                       accuracy: Double,
+                       user_id: Int,
+                       logo: UIImage,
+                       image: UIImage,
+                       success: @escaping(_ success: String)->Void,
+                       failure: @escaping(_ failure: String)->Void) {
+        
+        let parameter : [String: Any] = ["title":title,
+                                         "detail":detail,
+                                         "category":category,
+                                         "date":date,
+                                         "latitude":latitude,
+                                         "longitude":longitude,
+                                         "accuracy":accuracy,
+                                         "user_id":user_id
+        ]
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            let name = self.randomString(length: 8)
+            let name1 = self.randomString(length: 8)
+            multipartFormData.append(UIImageJPEGRepresentation(logo , 0.5)!, withName: "logo",
+                                     fileName: "image\(name).jpg",mimeType: "image/jpeg")
+            
+            multipartFormData.append(UIImageJPEGRepresentation(image , 0.5)!, withName: "image",
+                                     fileName: "image\(name1).jpg", mimeType: "image/jpeg")
+            
+            for (key, value) in parameter {
+                multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+            }
+            
+        }, usingThreshold:UInt64.init(),
+           to: "\(WEB_API_URL)create_feed",
+            method: .post,
+            headers: headers,
+            encodingCompletion: { (result) in
+                
+                switch result {
+                case .success(let upload, _, _):
+                    //print("the status code is :")
+                    
+                    upload.uploadProgress(closure: { (progress) in
+                        print("something")
+                    })
+                    upload.responseJSON {
+                        response in
+                        
+                        print("Response create_feed =\(response.result.value ?? "Not yet ")")
+                        if response.response?.statusCode == 200 {
+                            // succes response
+                            
+                        }
+                        if response.response?.statusCode != 200 {
+                            //error Message
+                        }
+                    }
+                    break
+                case .failure(let encodingError):
+                    failure(encodingError.localizedDescription)
+                    break
+                }
+        })
+    }
+    
+    
+    //======= CONSUMER
+    // 8 commons/feeds
+    func getConsumerAllFeed(success: @escaping(_ success :[Feed])->Void,
+                            failure: @escaping(_ failure: String)-> Void)  {
+        
+        let kay = UserDefaults.standard.string(forKey: "authkey")
+        let headerParam:[String:String] = ["Content-Type":"application/x-www-form-urlencoded",
+                                           WEB_TOKEN:kay ?? " "]
+        
+        Alamofire.request("\(WEB_API_URL_CUS)feeds",
+            method: .post,
+            parameters: nil,
+            encoding: URLEncoding.default,
+            headers: headerParam).responseJSON {
+                response in
+                print("Response =\(response.result.value ?? "Not")")
+                
+                if response.result.isSuccess {
+                    guard let data = response.data else {
+                        failure("No data found")
+                        return
+                    }
+                    do {
+                        let feedList = try JSONDecoder().decode(FeedResponse.self, from: data)
+                        if feedList.result ?? false {
+                            success(feedList.list!)
+                        }
+                    } catch {
+                        failure("Json error")
+                    }
+                }
+                if response.result.isFailure {
+                    failure(response.result.error?.localizedDescription ?? "ERROR" )
+                }
+        }
+        
+    }
+    
+    
+    //favourite_list Home Page consumer
+    func FavouritesList(success:@escaping(_ success:[Favourite])->Void,
+                        failure:@escaping(_ failure:String)->Void) {
+        
+        let kay = UserDefaults.standard.string(forKey: "authkey")
+        let headerParam:[String:String] = ["Content-Type":"application/x-www-form-urlencoded",
+                                           WEB_TOKEN:kay ?? " "]
+        
+        Alamofire.request("\(WEB_API_URL_CUS)favourite_list",
+            method: .post,
+            parameters: nil,
+            encoding: URLEncoding.default,
+            headers: headerParam).responseJSON {
+                response in
+                
+                print("RESPONSE = \(response.result.value ?? "ERROR")")
+                
+                if response.result.isSuccess {
+                    guard let data = response.data else {return}
+                    do{
+                        let favourit = try JSONDecoder().decode(FavouriteRes.self, from: data)
+                        if favourit.result ?? false {
+                            success(favourit.list!)
+                        } else {
+                            failure("No Data Founr")
+                        }
+                        
+                    } catch {
+                        failure("Json error")
+                    }
+                }
+                if response.result.isFailure {
+                    failure(response.result.error?.localizedDescription ?? "ERROR")
+                }
+                
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // BUSINESS
+    
+    //9 feeds // https://biz-gadget.herokuapp.com/api/businesses/feeds
+    // show home page to display data
+    func businessFeeds(headerParam:[String:String],
+                       success:@escaping(_ success:[Feed])->Void,
+                       failure:@escaping(_ failure:String)->Void) {
+        
+        Alamofire.request("\(WEB_APIURL_BUS)feeds",
+            method: .post,
+            parameters: nil,
+            encoding: URLEncoding.default,
+            headers: headerParam).responseJSON {
+                response in
+                print("\n Response =\(response.result.value ?? "Not")")
+                
+                if response.result.isSuccess {
+                    guard let data = response.data else {
+                        failure("No Data found")
+                        return
+                    }
+                    do {
+                        let feedList = try JSONDecoder().decode(FeedResponse.self, from: data)
+                        if feedList.result ?? false {
+                            success(feedList.list!)
+                        }
+                    }catch {
+                        failure("Json Error")
+                    }
+                }
+                if response.result.isFailure {
+                    failure(response.result.error?.localizedDescription ?? "Error")
+                }
+        }
+    }
+    
+    
+    // 10 delete business feed
+    func deleteBusinessFeed(id:Int,
+                            success: @escaping(_ success:String)->Void,
+                            failure: @escaping(_ failure:String)->Void) {
+        
+        let parameter:[String:Int] = ["id":id]
+        let kay = UserDefaults.standard.string(forKey: "authkey")
+        let headerParam:[String:String] = ["Content-Type":"application/x-www-form-urlencoded",
+                                           WEB_TOKEN:kay ?? " "]
+        
+        Alamofire.request("\(WEB_API_URL)delete_feed",
+                          method: .post,
+                          parameters: parameter,
+                          encoding: URLEncoding.default,
+                          headers: headerParam).responseJSON {
+                            response in
+                            print("Response = \(response.result.value ?? "Error Not Display")")
+                            if response.result.isSuccess {
+                                let response:[String:Any] = response.result.value as! [String:Any]
+                                if response["result"] as! Bool == true{
+                                    success(response["message"] as? String  ?? "Success")
+                                } else {
+                                    failure("Error")
+                                }
+                            }
+                            if response.result.isFailure {
+                               failure(response.result.error?.localizedDescription ?? "ERROR")
+                            }
+        }
+    }
     
     
     /*
+     
+     Json:  {"title": "my feed", "detail": "My first feed", "category_id": 2, "date": "2018-08-26 17:45:01.67464", "latitude": "18.654933", "longitude": "73.80768", "accuracy": "15.0", "user_id": 1, “logo”:  image0, “image”: image1 }
+
     func salonUploadReport(withcaseid customer_case_id:String,
                            hair_stylist_id :String,
                            date_time       :String,

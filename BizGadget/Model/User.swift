@@ -13,6 +13,8 @@ struct UserData: Decodable {
     var result: Bool?
     var Response:UserRes?
     var message: String?
+    var image: String?
+    
     
     private enum CodingKeys: String, CodingKey {
         case Response = "response"
@@ -32,7 +34,7 @@ struct UserRes: Decodable {
 }
 
 struct User: Decodable {
-    
+    var user_id:Int
     var user_name:String?
     var email:String?
     var mobile:String?
@@ -46,4 +48,8 @@ struct User: Decodable {
     var business_owner_last_name:String?
     var business_address:String?
     var business_mobile:String?
+    var tags:[String]?
 }
+
+
+

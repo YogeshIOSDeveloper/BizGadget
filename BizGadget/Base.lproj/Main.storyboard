@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uad-jv-Zbj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uad-jv-Zbj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,7 +33,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBp-A8-Rg6" customClass="BizGadgetButton" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="467" width="315.5" height="50"/>
+                                        <rect key="frame" x="30" y="467" width="315" height="50"/>
                                         <color key="backgroundColor" red="0.074509803921568626" green="0.69803921568627447" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Sign In">
@@ -54,8 +54,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="yogeshdate99@gmail.com" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obG-fu-JZm" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="307" width="315.5" height="50"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="yogeshdate@gmail.com" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obG-fu-JZm" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="307" width="315" height="50"/>
                                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Egk-2z-saJ"/>
@@ -76,7 +76,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUj-kH-1iT" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="377" width="315.5" height="50"/>
+                                        <rect key="frame" x="30" y="377" width="315" height="50"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -88,7 +88,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyN-XB-wYG">
-                                        <rect key="frame" x="267" y="531" width="66" height="34"/>
+                                        <rect key="frame" x="267" y="530.5" width="65" height="34"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" name="buttonColor"/>
@@ -280,14 +280,14 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgProfile" translatesAutoresizingMaskIntoConstraints="NO" id="d7X-AT-FWh">
-                                        <rect key="frame" x="137" y="435" width="100" height="100"/>
+                                        <rect key="frame" x="137.5" y="435" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Nud-LJ-80A"/>
                                             <constraint firstAttribute="width" constant="100" id="gZB-eQ-LdW"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed the topics you are intrested in." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aae-uu-CPn">
-                                        <rect key="frame" x="50" y="555" width="274" height="21"/>
+                                        <rect key="frame" x="50.5" y="555" width="274" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -409,7 +409,7 @@
                                 <rect key="frame" x="20" y="193.5" width="335" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You  are :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="196-HN-sSs">
-                                        <rect key="frame" x="30" y="30" width="76.5" height="21.5"/>
+                                        <rect key="frame" x="30" y="30" width="76" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -434,7 +434,7 @@
                                         </connections>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="idb-DA-r5v">
-                                        <rect key="frame" x="258" y="144" width="51" height="31"/>
+                                        <rect key="frame" x="258" y="143.5" width="51" height="31"/>
                                         <color key="onTintColor" name="buttonColor"/>
                                         <connections>
                                             <action selector="btnBusiness:" destination="I3k-r8-d1w" eventType="valueChanged" id="IM4-EJ-Oci"/>
@@ -541,7 +541,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oFJ-MS-2qB" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="30" width="315.5" height="45"/>
+                                        <rect key="frame" x="30" y="30" width="315" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="ZQz-2B-5B1"/>
@@ -562,7 +562,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4F-IQ-Szi" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="80" width="315.5" height="45"/>
+                                        <rect key="frame" x="30" y="80" width="315" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -580,7 +580,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnJ-Jn-b7m" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="130" width="315.5" height="45"/>
+                                        <rect key="frame" x="30" y="130" width="315" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -598,7 +598,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Incorporate Name(Bussiness Name)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JsN-3e-Mlg" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="180" width="315.5" height="45"/>
+                                        <rect key="frame" x="30" y="180" width="315" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -616,7 +616,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Incorporate First Name(Owner)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cpq-sg-LYi" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="230" width="315.5" height="45"/>
+                                        <rect key="frame" x="30" y="230" width="315" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -634,7 +634,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Incorporate Last Name(Owner)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-Lc-ovj" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="280" width="315.5" height="45"/>
+                                        <rect key="frame" x="30" y="280" width="315" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -652,7 +652,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Incorporate Bussiness Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bqd-Qv-5F8" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="415" width="315.5" height="45"/>
+                                        <rect key="frame" x="30" y="415" width="315" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -670,7 +670,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUk-NY-ufs" customClass="BizGadgetTextField" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="465" width="315.5" height="45"/>
+                                        <rect key="frame" x="30" y="465" width="315" height="45"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -688,7 +688,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OD8-eq-w7v">
-                                        <rect key="frame" x="30" y="330" width="316" height="80"/>
+                                        <rect key="frame" x="30" y="330" width="315" height="80"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="I2C-XB-Pcq"/>
@@ -708,13 +708,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eg. if you run a Pizza cafe, you can use Tags like pizza Parlour cafe etc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN9-ZV-lH9">
-                                        <rect key="frame" x="30" y="547" width="315.5" height="31.5"/>
+                                        <rect key="frame" x="30" y="547" width="315" height="31.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wQ-iD-AYE" customClass="BizGadgetButton" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="748.5" width="315.5" height="50"/>
+                                        <rect key="frame" x="30" y="748.5" width="315" height="50"/>
                                         <color key="backgroundColor" name="buttonColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="nD5-GK-T6R"/>
@@ -733,13 +733,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGq-sU-MRp">
-                                        <rect key="frame" x="63" y="813.5" width="190" height="19.5"/>
+                                        <rect key="frame" x="62.5" y="813.5" width="190" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMz-XU-7JZ">
-                                        <rect key="frame" x="258" y="806.5" width="57" height="34"/>
+                                        <rect key="frame" x="257.5" y="806.5" width="57" height="34"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" name="buttonColor"/>
@@ -749,7 +749,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgProfile" translatesAutoresizingMaskIntoConstraints="NO" id="BcO-Km-r0W">
-                                        <rect key="frame" x="128" y="601" width="120" height="120"/>
+                                        <rect key="frame" x="127.5" y="601" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="SuM-l8-hp7"/>
                                             <constraint firstAttribute="width" constant="120" id="gNi-vX-BSh"/>

@@ -21,27 +21,3 @@ struct category_data:Decodable {
     var id: Int?
     var name: String?
 }
-
-/*
- {
- "result": true,
- "response": {
- "category": true,
- "category_data": [
-    {
-        "id": 1,
-        "name": "chinese"
-    },
-    {
-        "id": 2,
-        "name": "indian"
-    },
-    {
-        "id": 3,
-        "name": "continetal"
-    }
-    ]
-    },
-        "message": "Category list fetched successfully"
-    }
- */

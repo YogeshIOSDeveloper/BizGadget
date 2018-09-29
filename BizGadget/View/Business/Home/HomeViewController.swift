@@ -7,45 +7,72 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeViewController: UIViewController {
         
-    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var myTable: UITableView!
     
-    var aryHome: [String] = ["All","Pizza","Cafe","Ice cream","All","Pizza","Cafe","Ice cream"]
+    var aryHome=[Feed]()
     var aryCategory:[category_data] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Owner
         getNotificationName()
         setDelegate()
         getCategory()
+        getAllTags()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
     }
     
+    func getAllTags()  {
+        
+        let key = UserDefaults.standard.string(forKey: "authkey")
+        guard let authKey = key else {
+            return
+        }
+        let param:[String:String]=["AuthToken":authKey]
+        
+        PROGRESS_SHOW(view: self.view)
+        Webservices.shared.businessFeeds(headerParam: param,
+                                              success: {
+                                                success in
+                                                self.aryHome = success
+                                                self.myTable.reloadData()
+                                                PROGRESS_HIDE()
+        }, failure: {
+            error in
+            PROGRESS_ERROR(view: self.view, error: error)
+        })
+        
+    }
     func setDelegate()  {
-        myTable.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "homeIdentifier")
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        myTable.register(UINib(nibName: "BusinessCell", bundle: nil), forCellReuseIdentifier: "cellBusiness")
         myTable.dataSource = self
         myTable.delegate = self
     }
     
     func getCategory()  {
+
+        guard let auth = GlobalData.shared.user?.accuracy else {
+            return
+        }
+        let headerParam = ["AuthToken":auth]
         PROGRESS_SHOW(view: self.view)
-        Webservices.shared.categoryList(success: {
+        Webservices.shared.categoryList(header: headerParam,
+                                        success: {
             ary in
             self.aryCategory = ary
-            self.collectionView.reloadData()
             PROGRESS_HIDE()
         }, failure: {
             error in
             PROGRESS_ERROR(view: self.view, error: error)
         })
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -153,39 +180,17 @@ class HomeViewController: UIViewController {
     }
     */
     
-    @IBAction func btnSegmentClicked(_ sender: YDSegmentedControl) {
-        
+    // Home Page
+
+    @IBAction func btnAddClicked(_ sender: BizGadgetButton) {
+        performSegue(withIdentifier: "segueAddfied", sender: self)
     }
     
     
-    
-    // Home Page
 }
 
-extension HomeViewController : UICollectionViewDataSource, UICollectionViewDelegate {
- 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return aryCategory.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellIdentifier = "cellCAtegory"
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CategoryCollectionViewCell
-        let obj = self.aryCategory[indexPath.row]
-        cell.lblNmae.text = obj.name
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedName = aryCategory[indexPath.row]
-        print("\n selectedName = \(selectedName.name ?? "Not")")
-    }
-    
-}
+
+
 
 extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
@@ -199,17 +204,20 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
-        let cellIdentifier = "homeIdentifier"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeTableViewCell
-        
-        
+        let cellIdentifier = "cellBusiness"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BusinessCell
+        let objName = aryHome[indexPath.row]
+        cell.lblTitle.text = objName.detail ?? "null"
+        cell.lblDate.text = objName.date ?? "null"
+        var strLogo:String = IMAGE_URL+"\(objName.logo ?? " ")"
+        strLogo.removeLast(11)
+        print("STR =\(strLogo)")
+        cell.imagePhoto.sd_setImage(with: URL(string:strLogo), placeholderImage: UIImage(named: "placeholder.png"))
+
+
         cell.OptionDelegate = self
-        cell.LikeDelegate = self
-        cell.FavouriteDelegate = self
-        cell.PhoneDelegate = self
-        cell.LocationDelegate = self
-        cell.ShareDelegate = self
-        cell.AddPersonDelegate = self
+        cell.OptionEdit = self
+
         
         return cell
     }
@@ -217,49 +225,53 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
 
 
 
-extension HomeViewController : OptionButtonDelegate,LikeButtonDelegate, FavouriteButtonDelegate, PhoneButtonDelegate, LocationButtonDelegate, ShareButtonDelegate, AddPersonDelegate {
+extension HomeViewController : BusinessDelegateDelegate,BusinessEditDelegate {
     
-    func didPressOptionButton(cell: HomeTableViewCell) {
+    func didPressDeleteBtn(cell : BusinessCell) {
         if let indexPath = myTable.indexPath(for: cell) {
-            print("didPressOptionButton =\(indexPath.row)")
+            print("didPressFavouriteButton = \(indexPath.row)")
+        
+        
+            let alert = UIAlertController(title: "Are you sure, you want to delete?",
+                                          message:nil,
+                                          preferredStyle: .alert)
+        
+            alert.addAction(UIAlertAction(title: "Yes",
+                                          style: .default,
+                                          handler: {
+                                            handler in
+                                            let name = self.aryHome[indexPath.row]
+                                            self.deleteBusiness(id: name.id ?? 0)
+            }))
+            alert.addAction(UIAlertAction(title: "No",
+                                          style: .default,
+                                          handler: {
+                                            handler in
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func didPressLikeButton(cell: HomeTableViewCell) {
-        if let indexPath = myTable.indexPath(for: cell) {
-            print("didPressLikeButton =\(indexPath.row)")
-        }
-    }
-    
-    func didPressFavouriteButton(cell: HomeTableViewCell) {
+    func didPressEditBtn(cell: BusinessCell) {
         if let indexPath = myTable.indexPath(for: cell) {
             print("didPressFavouriteButton = \(indexPath.row)")
         }
     }
     
-    func didPressPhoneButton(cell: HomeTableViewCell) {
-        if let indexpath = myTable.indexPath(for: cell) {
-            print("didPressPhoneButton \(indexpath.row)")
-        }
+    func deleteBusiness(id:Int) {
+        
+        PROGRESS_SHOW(view: self.view)
+        Webservices.shared.deleteBusinessFeed(id: id,
+                                              success: {
+                                                success in
+                                                PROGRESS_HIDE()
+                                                Alert.showAlert(message: "Delete successfully", viewController: self)
+        }, failure: {
+            error in
+            PROGRESS_ERROR(view: self.view, error: error)
+        })
     }
     
-    func didPressLocationButton(cell: HomeTableViewCell) {
-        if let indexPath = myTable.indexPath(for: cell){
-            print("didPressLocationButton =\(indexPath.row)")
-        }
-    }
-    
-    func didPressShareButton(cell: HomeTableViewCell) {
-        if let indexPath = myTable.indexPath(for: cell){
-            print("didPressShareButton =\(indexPath.row)")
-        }
-    }
-    
-    func didPressAddButton(cell: HomeTableViewCell) {
-        if let indexPath = myTable.indexPath(for: cell){
-            print("didPressAddButton =\(indexPath.row)")
-        }
-    }
 }
 
 

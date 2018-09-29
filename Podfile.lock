@@ -1,24 +1,30 @@
 PODS:
   - Alamofire (4.5.1)
   - JGProgressHUD (2.0)
+  - SDWebImage (4.1.2):
+    - SDWebImage/Core (= 4.1.2)
+  - SDWebImage/Core (4.1.2)
   - TPKeyboardAvoiding (1.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - JGProgressHUD
+  - SDWebImage (~> 4.0)
   - TPKeyboardAvoiding (= 1.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - JGProgressHUD
+    - SDWebImage
     - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   JGProgressHUD: c402c0f41fc291ca7e33bba2f999118d9682dd9c
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
 
-PODFILE CHECKSUM: 286fdaee6c456ca782ceb55d4c25a869a14557e5
+PODFILE CHECKSUM: 1bd2cf4faf8416c4f7241e92dedabc9a43cc83ec
 
 COCOAPODS: 1.5.3

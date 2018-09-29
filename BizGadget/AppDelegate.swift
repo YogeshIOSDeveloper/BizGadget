@@ -4,7 +4,7 @@
 //
 //  Created by Yogesh Date on 12/08/18.
 //  Copyright © 2018 Yogesh date. All rights reserved.
-//
+// 
 
 import UIKit
 import CoreData
@@ -17,15 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-    
-        Webservices.shared.categoryList(success: {
-            response in
-            print(response.count)
-            
-        }, failure: {
-            error in
-        })
-        
+        let key = UserDefaults.standard.string(forKey: "authkey")
+        print("\n\n\n\n key = \(key)")
         return true
     }
 

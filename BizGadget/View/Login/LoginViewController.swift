@@ -19,6 +19,26 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // check user
+        let defaults = UserDefaults.standard
+        let myarray = defaults.stringArray(forKey: "tags") ?? [String]()
+        for i in 0..<myarray.count {
+            let name = myarray[i]
+            print("name=\(name)")
+        }
+        
+        let userTtype = UserDefaults.standard.string(forKey: "type")
+        if let user = userTtype {
+            if user == USER_OWNER {
+                performSegue(withIdentifier: "segueOwner", sender: nil)
+            }
+            if user == USER_CUSTOMER {
+                performSegue(withIdentifier: "segueCustomer", sender: nil)
+            }
+        } else {
+            print("Login..... ")
+        }
+        
         let str = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         lblName.attributedText = addSeeMore(str: str, maxLength: 20)
         
@@ -78,7 +98,8 @@ class LoginViewController: UIViewController {
                                       password: self.textPassword.text ?? " ",
                                       success: {
                                         (user: User) in
-                                        PROGRESS_SUCCESS(view: self.view)
+                                        
+                                        PROGRESS_HIDE()
                                         self.checkUserResponse(user: user)
                                         
             }, failure: {
@@ -93,7 +114,7 @@ class LoginViewController: UIViewController {
         
         print(user.user_name as Any )
         guard let userType = user.type else { return }
-        
+        GlobalData.shared.saveUser(obj: user)
         if userType == USER_OWNER {
             performSegue(withIdentifier: "segueOwner", sender: nil)
         } else {

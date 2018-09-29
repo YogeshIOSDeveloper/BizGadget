@@ -18,7 +18,6 @@ class ContainerViewController: UIViewController {
     var isSideMenuOpen = false
     var width: CGFloat?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

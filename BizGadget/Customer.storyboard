@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="trz-yK-o7f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="trz-yK-o7f">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,7 +49,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageFavorites" translatesAutoresizingMaskIntoConstraints="NO" id="pmh-M7-Qf4">
-                                        <rect key="frame" x="235" y="18" width="25" height="25"/>
+                                        <rect key="frame" x="235" y="17.5" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="3w7-va-l9H"/>
                                             <constraint firstAttribute="height" constant="25" id="EWX-Vc-Xi8"/>
@@ -164,29 +164,11 @@
                                     <constraint firstAttribute="trailing" secondItem="kgF-Jl-Y7W" secondAttribute="trailing" id="vqr-YK-xYe"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfr-qQ-kRR" customClass="BizGadgetButton" customModule="BizGadget" customModuleProvider="target">
-                                <rect key="frame" x="300" y="572" width="50" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="wjn-XK-I8y"/>
-                                    <constraint firstAttribute="width" constant="50" id="zeX-xc-dea"/>
-                                </constraints>
-                                <state key="normal" image="imageFlotingButton"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnFlotingClicked:" destination="VXq-Sh-hcH" eventType="touchUpInside" id="uge-wj-u2K"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xek-8F-AWJ" firstAttribute="trailing" secondItem="039-Wx-r5e" secondAttribute="trailing" id="27U-KR-QfB"/>
                             <constraint firstItem="039-Wx-r5e" firstAttribute="top" secondItem="d2W-0G-bbM" secondAttribute="bottom" id="6Ew-oN-8oo"/>
-                            <constraint firstItem="xek-8F-AWJ" firstAttribute="trailing" secondItem="Gfr-qQ-kRR" secondAttribute="trailing" constant="25" id="HKx-o9-RNx"/>
                             <constraint firstItem="039-Wx-r5e" firstAttribute="leading" secondItem="xek-8F-AWJ" secondAttribute="leading" id="TKI-Zy-R2e"/>
                             <constraint firstItem="xek-8F-AWJ" firstAttribute="trailing" secondItem="d2W-0G-bbM" secondAttribute="trailing" id="eSC-NJ-I4F"/>
                             <constraint firstItem="WwH-gq-dFa" firstAttribute="top" secondItem="8jl-xQ-V8U" secondAttribute="bottom" constant="5" id="heK-IM-iad"/>
@@ -196,7 +178,6 @@
                             <constraint firstItem="WwH-gq-dFa" firstAttribute="leading" secondItem="xek-8F-AWJ" secondAttribute="leading" constant="16" id="ktj-Ka-VlR"/>
                             <constraint firstItem="jsI-bq-v0B" firstAttribute="trailing" secondItem="d2W-0G-bbM" secondAttribute="trailing" constant="-16" id="nNk-2N-PZD"/>
                             <constraint firstItem="xek-8F-AWJ" firstAttribute="bottom" secondItem="039-Wx-r5e" secondAttribute="bottom" id="tQr-hZ-8GP"/>
-                            <constraint firstItem="xek-8F-AWJ" firstAttribute="bottom" secondItem="Gfr-qQ-kRR" secondAttribute="bottom" constant="45" id="xoW-RM-1mE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xek-8F-AWJ"/>
                     </view>
@@ -216,7 +197,6 @@
                         <outlet property="tableIntrests" destination="vH6-Nr-W63" id="m5W-2a-VyH"/>
                         <outlet property="viewFavourites" destination="jsI-bq-v0B" id="kBF-R5-Fhi"/>
                         <outlet property="viewIntrests" destination="WwH-gq-dFa" id="WOr-BG-pwk"/>
-                        <segue destination="OL9-gc-ACR" kind="push" identifier="segueAddfied" id="AOj-fK-8Bo"/>
                         <segue destination="jvT-Eq-Dv2" kind="push" identifier="segueProfile" id="GNc-Oy-mGf"/>
                         <segue destination="GaY-Cz-T4w" kind="push" identifier="segueFeeds" id="f1C-Uw-jrc"/>
                         <segue destination="LeR-KU-eCM" kind="push" identifier="segueAbout" id="dvV-0H-5vO"/>
@@ -242,7 +222,7 @@
                                 <rect key="frame" x="0.0" y="214" width="375" height="33"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koy-cA-Sl2">
-                                        <rect key="frame" x="20" y="8" width="137" height="18"/>
+                                        <rect key="frame" x="20" y="7.5" width="137" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -307,7 +287,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBl-iE-2kK" customClass="BizGadgetButton" customModule="BizGadget" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="346" width="235" height="45"/>
+                                        <rect key="frame" x="70" y="346.5" width="235" height="45"/>
                                         <color key="backgroundColor" name="buttonColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="t5o-Av-yNg"/>
@@ -380,13 +360,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxS-vs-N34">
-                                        <rect key="frame" x="129" y="67" width="105" height="17"/>
+                                        <rect key="frame" x="129" y="66.5" width="105" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="customer@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWf-MP-FK4">
-                                        <rect key="frame" x="129" y="84" width="123" height="15"/>
+                                        <rect key="frame" x="129" y="83.5" width="123" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -804,7 +784,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ry5-uX-xoP">
-                                <rect key="frame" x="40" y="278.5" width="294" height="130"/>
+                                <rect key="frame" x="40" y="278.5" width="295" height="130"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYz-ub-1Ms">
                                         <rect key="frame" x="50" y="25" width="81" height="30"/>
@@ -835,7 +815,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageDelete" translatesAutoresizingMaskIntoConstraints="NO" id="l1w-c7-gk5">
-                                        <rect key="frame" x="20" y="76" width="25" height="25"/>
+                                        <rect key="frame" x="20" y="76.5" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="6Ju-a2-vPQ"/>
                                             <constraint firstAttribute="height" constant="25" id="jzX-ce-OW3"/>
@@ -952,22 +932,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coG-S0-Jr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5394" y="-860"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="XWA-Nj-5cW">
-            <objects>
-                <viewController id="OL9-gc-ACR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zyZ-zh-Jfb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Y8w-4Z-q88"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="gWP-xD-lRj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D9J-YJ-Qj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2722" y="1190"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="aRF-dD-bFH">
@@ -1242,7 +1206,6 @@
         <image name="imageEdit" width="60" height="60"/>
         <image name="imageEmoji" width="60" height="60"/>
         <image name="imageFavorites" width="60" height="60"/>
-        <image name="imageFlotingButton" width="60" height="60"/>
         <image name="imageMenu" width="60" height="60"/>
         <image name="imgProfile" width="60" height="60"/>
         <namedColor name="balckCOlor">

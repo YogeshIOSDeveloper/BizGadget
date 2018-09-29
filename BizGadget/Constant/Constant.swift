@@ -16,6 +16,8 @@ let ACCURACY                     = 15
 let ACTION_EDIT                  = "EDIT"
 let ACTION_DELETE                = "DELETE"
 let WEB_DEFAULT                  = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+let WEB_TOKEN                    = "AuthToken"
+
 
 //Notification customer
 let NOTIFICATION_MENU            = NSNotification.Name(rawValue: "NOTIFICATION_MENU")
@@ -35,8 +37,14 @@ let NOTIFICATION_CONTACT_OWNER   = NSNotification.Name(rawValue: "NOTIFICATION_C
 let NOTIFICATION_WORK_OWNER      = NSNotification.Name(rawValue: "NOTIFICATION_WORK_OWNER")
 let NOTIFICATION_CONDITION_OWNER = NSNotification.Name(rawValue: "NOTIFICATION_CONDITION_OWNER")
 let NOTIFICATION_POLICY_OWNER    = NSNotification.Name(rawValue: "NOTIFICATION_POLICY_OWNER")
-// Web Api
+
+// Web Api                       //https://biz-gadget.herokuapp.com/api/commons/delete_feed
 let WEB_API_URL                  = "https://biz-gadget.herokuapp.com/api/commons/"
+let WEB_API_URL_CUS              = "https://biz-gadget.herokuapp.com/api/consumers/"
+let WEB_APIURL_BUS               = "https://biz-gadget.herokuapp.com/api/businesses/"
+let IMAGE_URL                    = "https://biz-gadget.herokuapp.com"
+
+
 
 // PROGRESS
 let hudProgress = JGProgressHUD(style: .dark)

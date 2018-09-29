@@ -10,7 +10,7 @@ target 'BizGadget' do
     pod 'TPKeyboardAvoiding','1.3'
     pod 'Alamofire', '~> 4.5'
     pod 'JGProgressHUD'
-
+    pod 'SDWebImage', '~> 4.0'
 
   target 'BizGadgetTests' do
     inherit! :search_paths

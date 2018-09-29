@@ -32,6 +32,12 @@ protocol AddPersonDelegate {
 
 class HomeTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var imagePhoto: UIImageView!
+    
+    
+    
     var OptionDelegate: OptionButtonDelegate?
     var LikeDelegate: LikeButtonDelegate?
     var FavouriteDelegate: FavouriteButtonDelegate?

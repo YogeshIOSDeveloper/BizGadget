@@ -12,8 +12,9 @@ class CustomerHomeViewController: UIViewController {
 
     @IBOutlet weak var homeTableView: UITableView!
     
+    var aryIntrest=[String]()
     var isNotification: Bool = false
-    var aryHome: [String] = ["All","Pizza", "Cafe", "Ice cream","All","Pizza", "Cafe", "Ice cream"]
+    var aryHome=[Feed]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,21 @@ class CustomerHomeViewController: UIViewController {
         tableAdding()
         setDelegate()
         getNotification()
+        getAllTags()
+        
+        // define intrest add to array for intrest
+        let defaults = UserDefaults.standard
+        aryIntrest = defaults.stringArray(forKey: "tags") ?? [String]()
+        
+        // call services favourite background
+        DispatchQueue.global(qos: .background).async {
+            print("This is run on the background queue")
+            self.favouriteList()
+            DispatchQueue.main.async {
+                print("This is run on the main queue, after the previous code in outer block")
+                self.tableFavorites.reloadData()
+            }
+        }
     }
 
     func tableAdding()  {
@@ -113,6 +129,22 @@ class CustomerHomeViewController: UIViewController {
     }//seguePrivacy
     
     
+    func getAllTags()  {
+        
+        PROGRESS_SHOW(view: self.view)
+        Webservices.shared.getConsumerAllFeed(
+            success: {
+                success in
+                self.aryHome = success
+                self.homeTableView.reloadData()
+                PROGRESS_HIDE()
+                                                
+        }, failure: {
+            error in
+            PROGRESS_ERROR(view: self.view, error: error)
+        })
+        
+    }
     
     
     // MARK :- intrest and favourites Button Drower
@@ -124,8 +156,10 @@ class CustomerHomeViewController: UIViewController {
     @IBOutlet weak var tableFavorites: UITableView!
     @IBOutlet weak var favouritesHight: NSLayoutConstraint!
 
-    var aryIntrest: [String] = ["All","Pizza", "Cafe", "Ice cream"]
-    var aryFavourites: [String] = ["All","Pizza", "Cafe", "Ice cream"]
+    
+    
+    
+    var aryFavourites=[Favourite]()
     var intrestesClicked:Bool = true
     var favouriteClicked: Bool = true
     
@@ -152,7 +186,7 @@ class CustomerHomeViewController: UIViewController {
     
     func intrestDrower()  {
         if intrestesClicked {
-            self.intrestesHight.constant = 150
+            self.intrestesHight.constant = 250
             UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
             }
@@ -167,7 +201,7 @@ class CustomerHomeViewController: UIViewController {
     
     func favouritesDrower()  {
         if favouriteClicked {
-            self.favouritesHight.constant = 150
+            self.favouritesHight.constant = 250
             UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
             }
@@ -178,6 +212,17 @@ class CustomerHomeViewController: UIViewController {
             }
         }
         favouriteClicked = !favouriteClicked
+    }
+    
+    // favourite List
+    func favouriteList()  {
+        Webservices.shared.FavouritesList(success: {
+            aryFavourute in
+            self.aryFavourites = aryFavourute
+            self.tableFavorites.reloadData()
+        }, failure: {
+            error in
+        })
     }
     
     @IBAction func btnIntrestClicked(_ sender: UIButton) {
@@ -223,9 +268,9 @@ extension CustomerHomeViewController : UITableViewDataSource, UITableViewDelegat
         if tableView == homeTableView {
             return 115
         } else if tableView == tableIntrests {
-            return 30
+            return 45
         } else {
-            return 30
+            return 45
         }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -243,6 +288,8 @@ extension CustomerHomeViewController : UITableViewDataSource, UITableViewDelegat
             
             let cellIdentifier = "homeIdentifier"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HomeTableViewCell
+            let objList = aryHome[indexPath.row]
+            cell.lblTitle?.text=objList.detail ?? "Not"
             
             cell.OptionDelegate = self
             cell.LikeDelegate = self
@@ -264,7 +311,8 @@ extension CustomerHomeViewController : UITableViewDataSource, UITableViewDelegat
             
             let cellIdentifier = "FavouritesCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-            cell.textLabel?.text = self.aryFavourites[indexPath.row]
+            let objFavourite = self.aryFavourites[indexPath.row]
+            cell.textLabel?.text = objFavourite.name ?? "nil"
             
             return cell
         }
@@ -279,10 +327,18 @@ extension CustomerHomeViewController : UITableViewDataSource, UITableViewDelegat
             let name = aryIntrest[indexPath.row]
             self.intrestDrower()
             print("Name = \(name)")
+            
+            // add filter og Feeds Array
+            for i in 0..<aryHome.count{
+                let obj = aryHome[i]
+                if obj.category == name {
+                    
+                }
+            }
         } else {
             let name = aryFavourites[indexPath.row]
             self.favouritesDrower()
-            print("Name = \(name)")
+            print("Name = \(name.name ?? "nil")")
         }
     }
 }
