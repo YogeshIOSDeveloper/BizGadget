@@ -11,10 +11,14 @@ import UIKit
 class LeftMenuViewController: UIViewController {
 
  //   @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var imagePhoto: BigzGadgetImage!
+    @IBOutlet weak var lblemail: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let email = UserDefaults.standard.string(forKey: "email")
+        lblemail.text = email
         // Customer
 //        mainView.layer.shadowOpacity = 0.8
 //        mainView.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -92,6 +96,8 @@ class LeftMenuViewController: UIViewController {
                                                 style: .default,
                                                 handler: {
           handler in
+          GlobalData.shared.deleteUserinfo()
+                                                    
          NotificationCenter.default.post(name: NOTIFICATION_MENU, object: nil)
          NotificationCenter.default.removeObserver(NOTIFICATION_MENU)
          self.dismiss(animated: true, completion: nil)

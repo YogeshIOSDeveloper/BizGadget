@@ -12,7 +12,7 @@ import JGProgressHUD
 
 let USER_CUSTOMER                = "consumer"
 let USER_OWNER                   = "business"
-let ACCURACY                     = 15
+let ACCURACY:Double              = 150.0000
 let ACTION_EDIT                  = "EDIT"
 let ACTION_DELETE                = "DELETE"
 let WEB_DEFAULT                  = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -39,11 +39,14 @@ let NOTIFICATION_CONDITION_OWNER = NSNotification.Name(rawValue: "NOTIFICATION_C
 let NOTIFICATION_POLICY_OWNER    = NSNotification.Name(rawValue: "NOTIFICATION_POLICY_OWNER")
 
 // Web Api                       //https://biz-gadget.herokuapp.com/api/commons/delete_feed
+
+let WEB_CONTACT                  = "https://biz-gadget.herokuapp.com/contacts"
 let WEB_API_URL                  = "https://biz-gadget.herokuapp.com/api/commons/"
 let WEB_API_URL_CUS              = "https://biz-gadget.herokuapp.com/api/consumers/"
 let WEB_APIURL_BUS               = "https://biz-gadget.herokuapp.com/api/businesses/"
-let IMAGE_URL                    = "https://biz-gadget.herokuapp.com"
 
+let IMAGE_URL                    = "https://biz-gadget.herokuapp.com"
+let IMAGE_URL_CONSUMER           = "https://biz-gadget.herokuapp.com/consumers"
 
 
 // PROGRESS

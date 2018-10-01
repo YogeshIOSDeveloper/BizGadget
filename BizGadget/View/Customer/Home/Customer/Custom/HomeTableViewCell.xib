@@ -57,7 +57,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 hrs ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCc-JQ-bq3">
-                                <rect key="frame" x="10" y="69" width="49.5" height="13.5"/>
+                                <rect key="frame" x="10" y="76.5" width="49.5" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -134,7 +134,6 @@
                             <constraint firstItem="OeG-rY-aZD" firstAttribute="centerY" secondItem="SAP-N3-pyY" secondAttribute="centerY" id="I3p-pt-dQK"/>
                             <constraint firstAttribute="trailing" secondItem="Kg4-OD-vP5" secondAttribute="trailing" constant="20" id="Isu-he-xG8"/>
                             <constraint firstAttribute="trailing" secondItem="VaD-OO-uE5" secondAttribute="trailing" constant="62" id="J1x-CO-x1Y"/>
-                            <constraint firstItem="QCc-JQ-bq3" firstAttribute="top" secondItem="VaD-OO-uE5" secondAttribute="bottom" constant="10" id="NMm-2b-8t0"/>
                             <constraint firstItem="KkK-qN-3Pn" firstAttribute="centerY" secondItem="KeY-4P-pyL" secondAttribute="centerY" id="Orq-Fz-tRY"/>
                             <constraint firstItem="OeG-rY-aZD" firstAttribute="height" secondItem="SAP-N3-pyY" secondAttribute="height" id="SR0-Un-b1g"/>
                             <constraint firstAttribute="trailing" secondItem="SO7-2z-H5L" secondAttribute="trailing" constant="-3" id="VXp-tN-2qh"/>
@@ -162,6 +161,7 @@
                     <constraint firstItem="Dae-0e-by9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="86b-Ga-0Tc"/>
                     <constraint firstAttribute="trailing" secondItem="DRG-9y-sOd" secondAttribute="trailing" constant="10" id="FDR-fz-Pwq"/>
                     <constraint firstItem="DRG-9y-sOd" firstAttribute="centerY" secondItem="Dae-0e-by9" secondAttribute="centerY" id="LWp-3x-o6e"/>
+                    <constraint firstItem="QCc-JQ-bq3" firstAttribute="bottom" secondItem="PBA-F6-cZ2" secondAttribute="bottom" id="bA3-ZT-NfA"/>
                     <constraint firstItem="DRG-9y-sOd" firstAttribute="height" secondItem="Dae-0e-by9" secondAttribute="height" id="zSE-Wk-Qvr"/>
                 </constraints>
             </tableViewCellContentView>

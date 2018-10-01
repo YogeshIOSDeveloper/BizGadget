@@ -1,0 +1,6 @@
+framework module Pods_BizGadget {
+  umbrella header "Pods-BizGadget-umbrella.h"
+
+  export *
+  module * { export * }
+}

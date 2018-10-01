@@ -41,10 +41,42 @@ class ContactUsViewController: UIViewController {
     @IBAction func btnSubmitClicked(_ sender: BizGadgetButton) {
         
         if validation() {
-           print("Submit.......")
+            PROGRESS_SHOW(view: self.view)
+            Webservices.shared.contactUs(name: self.textName.text!,
+                                         email: self.textEmail.text!,
+                                         country: self.textCountry.text!,
+                                         state: self.textState.text!,
+                                         city: self.textCity.text!,
+                                         phone: self.textPhone.text!,
+                                         message: self.textComment.text!,
+                                         success: {
+                                            message in
+                                            PROGRESS_HIDE()
+                                            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                                            alert.addAction(UIAlertAction(title: "Ok",
+                                                                          style: .default,
+                                                                          handler: {
+                                                                            handler in
+                                                    self.clearText()
+                                                self.navigationController?.popViewController(animated: true)
+                                            }))
+                                            self.present(alert, animated: true, completion: nil)
+            }, failure: {
+                error in
+                PROGRESS_ERROR(view: self.view, error: error)
+            })
         }
     }
     
+    func clearText() {
+        self.textName.text = ""
+        self.textEmail.text = ""
+        self.textCountry.text = ""
+        self.textState.text = ""
+        self.textCity.text = ""
+        self.textPhone.text = ""
+        self.textComment.text = "Business Address"
+    }
     
     func validation() -> Bool  {
         

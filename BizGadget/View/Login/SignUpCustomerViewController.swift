@@ -7,31 +7,40 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SignUpCustomerViewController: UIViewController {
 
     @IBOutlet weak var textUserName: BizGadgetTextField!
     @IBOutlet weak var textEmailAddress: BizGadgetTextField!
     @IBOutlet weak var textMobileNo: BizGadgetTextField!
-    @IBOutlet weak var textUploadPhoto: BizGadgetTextField!
-    @IBOutlet weak var textImgProfile: UIImageView!
-    @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var textPassword: BizGadgetTextField!    
+    @IBOutlet weak var textConfirmPwd: BizGadgetTextField!
+    @IBOutlet weak var textTag: BizGadgetTextField!
+
     
+    var locationManager:CLLocationManager!
+    var lat:Double?
+    var long:Double?
     private var picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        circleImage()
+        determineMyCurrentLocation()
+    }
+    
+    func determineMyCurrentLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            //locationManager.startUpdatingHeading()
+        }
     }
 
-    func circleImage()  {
-        
-        imgProfile?.layer.cornerRadius = (imgProfile?.frame.size.width ?? 0.0) / 2
-        imgProfile?.clipsToBounds = true
-        imgProfile?.layer.borderWidth = 3.0
-        imgProfile?.layer.borderColor = UIColor.white.cgColor
-        self.picker.delegate = self
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -85,24 +94,45 @@ class SignUpCustomerViewController: UIViewController {
     @IBAction func textRegister(_ sender: BizGadgetButton) {
         if validatinSignUp() {
             print("Done .......")
-            //
+            let str = self.textTag.text ?? " "
+            var arrayString = str.components(separatedBy: " ")
+            if arrayString.last == "" {
+               arrayString.removeLast()
+            }
+            print("Ary String =\(arrayString)")
+            PROGRESS_SHOW(view: self.view)
             Webservices.shared.SignUpConsumer(user_name: self.textUserName.text ?? " ",
                                               email: self.textEmailAddress.text ?? " ",
-                                              password: " ",
+                                              password: self.textPassword.text ?? " ",
                                               mobile: self.textMobileNo.text ?? " ",
-                                              type: USER_OWNER,
-                                              latitude: "",
-                                              longitude: "",
+                                              type: USER_CUSTOMER,
+                                              latitude: self.lat ?? 0,
+                                              longitude: self.long ?? 0,
                                               accuracy: ACCURACY,
-                                              tags: [" "," "," "],
+                                              tags: arrayString,
                                               success: {
-                                                cussess in
+                                                objUser in
+                                                self.checkUserResponse(user: objUser)
+                                                PROGRESS_HIDE()
                                                 
             }, failure: {
-                error in 
+                error in
+                PROGRESS_ERROR(view: self.view, error: error)
             })
         }
     }
+    
+    
+    // MARK :- User Response
+    func checkUserResponse(user : User)  {
+        
+        print(user.user_name as Any )
+        GlobalData.shared.saveUser(obj: user)
+        performSegue(withIdentifier: "segueCustomer", sender: nil)
+    }
+    
+
+    
     
     func validatinSignUp() -> Bool {
         
@@ -118,26 +148,47 @@ class SignUpCustomerViewController: UIViewController {
             Alert.showAlert(message: "Enter Mobile Number", viewController: self)
             return false
         }
+        if (textPassword.text?.isEmpty)! {
+            Alert.showAlert(message: "Enter Password", viewController: self)
+            return false
+        }
+        if (textConfirmPwd.text?.isEmpty)! {
+            Alert.showAlert(message: "Enter Confirm Password", viewController: self)
+            return false
+        }
+        if !(textPassword?.text == textConfirmPwd?.text) {
+            Alert.showAlert(message: "Password And Confirm Password not match", viewController: self)
+            return false
+        }
+        if (textTag.text?.isEmpty)! {
+            Alert.showAlert(message: "Enter Tags", viewController: self)
+            return false
+        }
         return true
     }
 
 }
 
 
-extension SignUpCustomerViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+extension SignUpCustomerViewController:CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0] as CLLocation
         
-        let chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        self.imgProfile.image = chosenImage
+        // Call stopUpdatingLocation() to stop listening for location updates,
+        // other wise this function will be called every time when user location changes.
         
-        dismiss(animated: true, completion: nil)
+        // manager.stopUpdatingLocation()
+        
+        print("user latitude = \(userLocation.coordinate.latitude)")
+        print("user longitude = \(userLocation.coordinate.longitude)")
+        self.lat = userLocation.coordinate.latitude
+        self.long = userLocation.coordinate.longitude
+        manager.stopUpdatingLocation()
     }
     
-    
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+    {
+        print("Error \(error)")
     }
 }
-

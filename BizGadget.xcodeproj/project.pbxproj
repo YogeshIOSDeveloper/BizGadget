@@ -34,11 +34,12 @@
 		BF518A6721216B210021E4B4 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF518A6621216B210021E4B4 /* Constant.swift */; };
 		BF518A6921218FF70021E4B4 /* Customer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF518A6821218FF70021E4B4 /* Customer.storyboard */; };
 		BF518A6C212199E50021E4B4 /* CustomerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF518A6B212199E50021E4B4 /* CustomerHomeViewController.swift */; };
-		BF52139D212A934300998FE3 /* EditDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52139C212A934300998FE3 /* EditDeleteViewController.swift */; };
+		BF52139D212A934300998FE3 /* AddFavouriteCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52139C212A934300998FE3 /* AddFavouriteCustomerViewController.swift */; };
 		BF541FC321247BFE00E6FA19 /* BigzGadgetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF541FC221247BFE00E6FA19 /* BigzGadgetImage.swift */; };
 		BF54D8212128518200298AA5 /* YDSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF54D8202128518200298AA5 /* YDSegmentedControl.swift */; };
 		BF568B682121C04F00B252A6 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF568B662121C04F00B252A6 /* HomeTableViewCell.swift */; };
 		BF568B692121C04F00B252A6 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF568B672121C04F00B252A6 /* HomeTableViewCell.xib */; };
+		BF6201C12160BDCE00856B13 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF6201C02160BDCE00856B13 /* CoreLocation.framework */; };
 		BF7009C6215F68A900D9798E /* DateDelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7009C5215F68A900D9798E /* DateDelegateViewController.swift */; };
 		BF7009C9215F7B0200D9798E /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7009C7215F7B0200D9798E /* BusinessCell.swift */; };
 		BF7009CA215F7B0200D9798E /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7009C8215F7B0200D9798E /* BusinessCell.xib */; };
@@ -117,11 +118,12 @@
 		BF518A6621216B210021E4B4 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		BF518A6821218FF70021E4B4 /* Customer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Customer.storyboard; sourceTree = "<group>"; };
 		BF518A6B212199E50021E4B4 /* CustomerHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerHomeViewController.swift; sourceTree = "<group>"; };
-		BF52139C212A934300998FE3 /* EditDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeleteViewController.swift; sourceTree = "<group>"; };
+		BF52139C212A934300998FE3 /* AddFavouriteCustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavouriteCustomerViewController.swift; sourceTree = "<group>"; };
 		BF541FC221247BFE00E6FA19 /* BigzGadgetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigzGadgetImage.swift; sourceTree = "<group>"; };
 		BF54D8202128518200298AA5 /* YDSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDSegmentedControl.swift; sourceTree = "<group>"; };
 		BF568B662121C04F00B252A6 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		BF568B672121C04F00B252A6 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		BF6201C02160BDCE00856B13 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BF7009C5215F68A900D9798E /* DateDelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDelegateViewController.swift; sourceTree = "<group>"; };
 		BF7009C7215F7B0200D9798E /* BusinessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
 		BF7009C8215F7B0200D9798E /* BusinessCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessCell.xib; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6201C12160BDCE00856B13 /* CoreLocation.framework in Frameworks */,
 				DA165ADF64429AF620F06F71 /* Pods_BizGadget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +190,7 @@
 		70B212042B49E8227FC6887E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF6201C02160BDCE00856B13 /* CoreLocation.framework */,
 				1A324DE50C08C683EF289C14 /* Pods_BizGadget.framework */,
 				F72AEB7ADEDD1ECFAA5B4E7D /* Pods_BizGadgetTests.framework */,
 				04AA475350E4685133762B28 /* Pods_BizGadgetUITests.framework */,
@@ -354,7 +358,7 @@
 				BF8E58AC2124322C0083C7F9 /* ContainerViewController.swift */,
 				BF8E58AE212449400083C7F9 /* LeftMenuViewController.swift */,
 				BF518A6B212199E50021E4B4 /* CustomerHomeViewController.swift */,
-				BF52139C212A934300998FE3 /* EditDeleteViewController.swift */,
+				BF52139C212A934300998FE3 /* AddFavouriteCustomerViewController.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -650,7 +654,7 @@
 				BF7009CC215FA5A600D9798E /* FavouriteList.swift in Sources */,
 				BF320BDB2120AFE90072B79D /* BizGadget.xcdatamodeld in Sources */,
 				BF9D79EE215773D50051B138 /* TagList.swift in Sources */,
-				BF52139D212A934300998FE3 /* EditDeleteViewController.swift in Sources */,
+				BF52139D212A934300998FE3 /* AddFavouriteCustomerViewController.swift in Sources */,
 				BF518A62212156930021E4B4 /* SignUpCustomerViewController.swift in Sources */,
 				BFA173E52142E16000A24914 /* CategoryCollectionViewCell.swift in Sources */,
 				BF86E61321273F1F008803DC /* AboutViewController.swift in Sources */,

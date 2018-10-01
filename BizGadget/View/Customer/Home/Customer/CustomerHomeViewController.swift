@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CustomerHomeViewController: UIViewController {
 
@@ -15,6 +16,7 @@ class CustomerHomeViewController: UIViewController {
     var aryIntrest=[String]()
     var isNotification: Bool = false
     var aryHome=[Feed]()
+    var tempAryHome=[Feed]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,6 +138,7 @@ class CustomerHomeViewController: UIViewController {
             success: {
                 success in
                 self.aryHome = success
+                self.tempAryHome = success
                 self.homeTableView.reloadData()
                 PROGRESS_HIDE()
                                                 
@@ -291,6 +294,12 @@ extension CustomerHomeViewController : UITableViewDataSource, UITableViewDelegat
             let objList = aryHome[indexPath.row]
             cell.lblTitle?.text=objList.detail ?? "Not"
             
+            var strLogo:String = IMAGE_URL_CONSUMER+"\(objList.logo ?? " ")"
+            strLogo.removeLast(11)
+            print("STR =\(strLogo)")
+            cell.imagePhoto.sd_setImage(with: URL(string:strLogo), placeholderImage: UIImage(named: "placeholder.png"))
+
+            
             cell.OptionDelegate = self
             cell.LikeDelegate = self
             cell.FavouriteDelegate = self
@@ -329,11 +338,19 @@ extension CustomerHomeViewController : UITableViewDataSource, UITableViewDelegat
             print("Name = \(name)")
             
             // add filter og Feeds Array
+            aryHome = tempAryHome
+            var temp1Ary=[Feed]()
             for i in 0..<aryHome.count{
                 let obj = aryHome[i]
                 if obj.category == name {
-                    
+                   temp1Ary.append(obj)
                 }
+            }
+            if temp1Ary.count == 0 {
+                Alert.showAlert(message: "No record show", viewController: self)
+            } else {
+                aryHome=temp1Ary
+                self.homeTableView.reloadData()
             }
         } else {
             let name = aryFavourites[indexPath.row]
@@ -354,8 +371,8 @@ extension CustomerHomeViewController : OptionButtonDelegate,LikeButtonDelegate, 
         
         if let indexPath = homeTableView.indexPath(for: cell) {
             print("didPressOptionButton =\(indexPath.row)")
-            let editPopUp = self.storyboard?.instantiateViewController(withIdentifier: "EditDeleteViewController") as! EditDeleteViewController
-            editPopUp.index = indexPath.row
+            let editPopUp = self.storyboard?.instantiateViewController(withIdentifier: "AddFavouriteCustomerViewController") as! AddFavouriteCustomerViewController
+  
             editPopUp.SelectedDelegate = self //SelectedOptionDelegate
             self.present(editPopUp, animated: true, completion: nil)
         }
@@ -370,7 +387,15 @@ extension CustomerHomeViewController : OptionButtonDelegate,LikeButtonDelegate, 
     func didPressFavouriteButton(cell: HomeTableViewCell) {
         if let indexPath = homeTableView.indexPath(for: cell) {
             print("didPressFavouriteButton = \(indexPath.row)")
+            let obj=self.storyboard?.instantiateViewController(withIdentifier: "AddFavouriteCustomerViewController") as! AddFavouriteCustomerViewController
+            let objFav = self.aryHome[indexPath.row]
+            obj.feedId = objFav.id ?? 0
+            self.present(obj, animated: true, completion: nil)
         }
+        
+        
+        
+        
     }
     
     func didPressPhoneButton(cell: HomeTableViewCell) {

@@ -61,7 +61,7 @@ class GlobalData: NSObject {
         return user
     }
     
-    /*
+    
     func deleteUserinfo() {
         let userObj = UserDefaults.standard
         let dictionary = userObj.dictionaryRepresentation()
@@ -69,6 +69,6 @@ class GlobalData: NSObject {
             userObj.removeObject(forKey: key)
         }
     }
-    */
+ 
     
 }

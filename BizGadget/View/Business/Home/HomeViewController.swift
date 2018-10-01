@@ -211,7 +211,6 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
         cell.lblDate.text = objName.date ?? "null"
         var strLogo:String = IMAGE_URL+"\(objName.logo ?? " ")"
         strLogo.removeLast(11)
-        print("STR =\(strLogo)")
         cell.imagePhoto.sd_setImage(with: URL(string:strLogo), placeholderImage: UIImage(named: "placeholder.png"))
 
 

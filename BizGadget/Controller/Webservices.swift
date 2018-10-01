@@ -86,21 +86,17 @@ class Webservices: NSObject {
         }
     }
     
-    
-    
-    
-    
     //2 SignUp Consumer
     func SignUpConsumer(user_name: String,
                         email: String,
                         password: String,
                         mobile: String,
                         type: String,
-                        latitude: String,
-                        longitude: String,
-                        accuracy: Int,
+                        latitude: Double,
+                        longitude: Double,
+                        accuracy: Double,
                         tags:[String],
-                        success: @escaping(_ success: String)-> Void,
+                        success: @escaping(_ success: User)-> Void,
                         failure: @escaping(_ failure: String)-> Void) {
         
         let parameters = ["user_name": user_name,
@@ -111,26 +107,40 @@ class Webservices: NSObject {
                          "latitude": latitude,
                          "longitude": longitude,
                          "accuracy": accuracy,
-                         "tags": [tags] ] as [String : Any]
+                         "tags": tags] as [String : Any]
         
-        Alamofire.request("\(WEB_API_URL)signup",
+        Alamofire.request("https://biz-gadget.herokuapp.com/api/commons/signup",
             method: .post,
             parameters: parameters,
-            encoding: URLEncoding.default,
+            encoding: JSONEncoding.default,
             headers: headers).responseJSON {
                 response in
-                print("Response =\(response.result.value ?? "Not yet")")
+                print("\n Signin Response =\(response.result.value ?? "Not yet ")")
                 
                 if response.result.isSuccess {
                     
+                    guard let responseData = response.data else {
+                        failure("Data not found")
+                        return
+                    }
+                    do
+                    {
+                        let userData = try JSONDecoder().decode(UserData.self, from: responseData)
+                        if userData.result ?? false {
+                            success((userData.Response?.user)!)
+                        } else {
+                            failure(userData.message ?? "Error")
+                        }
+                    }
+                    catch {
+                        failure("User name and password not matched")
+                    }
                 }
                 if response.result.isFailure {
                     failure(response.result.error?.localizedDescription ?? "error")
                 }
         }
-        
     }
-    
     
     func randomString(length: Int) -> String {
         let letters : NSString = WEB_DEFAULT as NSString
@@ -221,8 +231,60 @@ class Webservices: NSObject {
                 }
         })
     }
-
+/*
+     name:Yogesh
+     email:yogesh@gmaul.com
+     country:India
+     state:Maharashtra
+     city:Pune
+     phone:9922790989
+     message:Hi
+ */
+    
+    // Contact Us
+    func contactUs(name:String,
+                   email:String,
+                   country:String,
+                   state:String,
+                   city:String,
+                   phone:String,
+                   message:String,
+                   success:@escaping(_ success:String)->Void,
+                   failure:@escaping(_ failure:String)->Void) {
         
+        let dictParam:[String:String]=["name":name,
+                                       "email":email,
+                                       "country":country,
+                                       "state":state,
+                                       "city":city,
+                                       "phone":phone,
+                                       "message":message
+                                       ]
+        let kay = UserDefaults.standard.string(forKey: "authkey")
+        let headerParam:[String:String] = ["Content-Type":"application/x-www-form-urlencoded",
+                                           WEB_TOKEN:kay ?? " "]
+        
+        Alamofire.request(WEB_CONTACT,
+            method: .post,
+            parameters: dictParam,
+            encoding: URLEncoding.default,
+            headers: headerParam).responseJSON {
+                response in
+                if response.result.isSuccess {
+                  print("Response=\(response.result.value ?? "Not yet")")
+                    let response:[String:Any] = response.result.value as! [String:Any]
+                    if response["result"] as! Bool == true{
+                        success(response["message"] as? String  ?? "Success")
+                    } else {
+                        failure("Error")
+                    }
+                }
+                if response.result.isFailure {
+                    failure(response.result.error?.localizedDescription ?? "ERROR")
+                }
+        }
+        
+    }
         
        //4 category_list
     func categoryList(header:[String:String],
@@ -466,17 +528,80 @@ class Webservices: NSObject {
                 if response.result.isFailure {
                     failure(response.result.error?.localizedDescription ?? "ERROR")
                 }
-                
         }
         
     }
     
+    //https://biz-gadget.herokuapp.com/api/consumers/create_favourite
+    func createFavourite(name:String,
+                         user_id:Int,
+                         success:@escaping(_ success:String)-> Void,
+                         failure:@escaping(_ failure:String)->Void) {
+        
+        let dictParam:[String:Any] = ["name":name,
+                                     "user_id":user_id]
+        
+        let kay = UserDefaults.standard.string(forKey: "authkey")
+        let headerParam:[String:String] = ["Content-Type":"application/x-www-form-urlencoded",
+                                           WEB_TOKEN:kay ?? " "]
+        
+        Alamofire.request("\(WEB_API_URL_CUS)create_favourite",
+            method: .post,
+            parameters: dictParam,
+            encoding: URLEncoding.default,
+            headers: headerParam).responseJSON {
+                response in
+                print("Response =\(response.result.value ?? "Nil")")
+                if response.result.isSuccess {
+                    let response:[String:Any] = response.result.value as! [String:Any]
+                    if response["result"] as! Bool == true{
+                        success(response["message"] as? String  ?? "Success")
+                    } else {
+                        failure("Error")
+                    }
+                }
+                if response.result.isFailure {
+                    failure(response.result.error?.localizedDescription ?? "Error")
+                }
+        }
+    }
+
     
     
     
-    
-    
-    
+     //https://biz-gadget.herokuapp.com/api/consumers/set_favourite
+    func setFavourite(feedId:Int,
+                      favouriteId:Int,
+                      success:@escaping(_ success:String)->Void,
+                      failure:@escaping(_ failure:String)->Void) {
+        
+        let dictParam:[String:Any] = ["feed_id":feedId,
+                                      "favourite_id":favouriteId]
+        
+        let kay = UserDefaults.standard.string(forKey: "authkey")
+        let headerParam:[String:String] = ["Content-Type":"application/x-www-form-urlencoded",
+                                           WEB_TOKEN:kay ?? " "]
+        
+        Alamofire.request("\(WEB_API_URL_CUS)set_favourite",
+            method: .post,
+            parameters: dictParam,
+            encoding: URLEncoding.default,
+            headers: headerParam).responseJSON {
+                response in
+                print("Response =\(response.result.value ?? "Nil")")
+                if response.result.isSuccess {
+                    let response:[String:Any] = response.result.value as! [String:Any]
+                    if response["result"] as! Bool == true{
+                        success(response["message"] as? String  ?? "Success")
+                    } else {
+                        failure("Error")
+                    }
+                }
+                if response.result.isFailure {
+                    failure(response.result.error?.localizedDescription ?? "Error")
+                }
+        }
+    }
     
     
     

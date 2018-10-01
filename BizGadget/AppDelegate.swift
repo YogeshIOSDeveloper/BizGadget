@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let key = UserDefaults.standard.string(forKey: "authkey")
-        print("\n\n\n\n key = \(key)")
+        
+        
         return true
     }
 
