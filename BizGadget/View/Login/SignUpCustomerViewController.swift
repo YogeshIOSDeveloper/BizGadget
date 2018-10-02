@@ -99,29 +99,63 @@ class SignUpCustomerViewController: UIViewController {
             if arrayString.last == "" {
                arrayString.removeLast()
             }
-            print("Ary String =\(arrayString)")
-            PROGRESS_SHOW(view: self.view)
-            Webservices.shared.SignUpConsumer(user_name: self.textUserName.text ?? " ",
-                                              email: self.textEmailAddress.text ?? " ",
-                                              password: self.textPassword.text ?? " ",
-                                              mobile: self.textMobileNo.text ?? " ",
-                                              type: USER_CUSTOMER,
-                                              latitude: self.lat ?? 0,
-                                              longitude: self.long ?? 0,
-                                              accuracy: ACCURACY,
-                                              tags: arrayString,
-                                              success: {
-                                                objUser in
-                                                self.checkUserResponse(user: objUser)
-                                                PROGRESS_HIDE()
-                                                
-            }, failure: {
-                error in
-                PROGRESS_ERROR(view: self.view, error: error)
-            })
-        }
+        self.signUp(user_name: self.textUserName.text ?? " ",
+                    email: self.textEmailAddress.text ?? " ",
+                    password: self.textPassword.text ?? " ",
+                    mobile: self.textMobileNo.text ?? " ",
+                    latitude: self.lat ?? 0,
+                    longitude: self.long ?? 0,
+                    tags: arrayString)
+       }
     }
     
+    
+    func signUp(user_name:String,
+                email:String,
+                password:String,
+                mobile:String,
+                latitude:Double,
+                longitude:Double,
+                tags:[String])  {
+        
+        PROGRESS_SHOW(view: self.view)
+        let url = URL(string:"https://biz-gadget.herokuapp.com/api/commons/signup")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded",forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let postString = "user_name=\(user_name)&email=\(email)&password=\(password)&mobile=\(mobile)&type=consumer&latitude=\(latitude)&longitude=\(longitude)&accuracy=15.00&tags=\(tags)"
+        print("\n\n\n Post String =\(postString)")
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                
+                DispatchQueue.main.async {
+                    // check for fundamental networking error
+                    print("error=\(error?.localizedDescription ?? "Error" )")
+                    PROGRESS_ERROR(view: self.view, error: error?.localizedDescription ?? "Error")
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                do
+                {
+                    let userData = try JSONDecoder().decode(UserData.self, from: data)
+                    if userData.result ?? false {
+                        PROGRESS_HIDE()
+                        self.checkUserResponse(user: (userData.Response?.user)!)
+                    } else {
+                        PROGRESS_ERROR(view: self.view, error: userData.message ?? "Error")
+                    }
+                }
+                catch {
+                    PROGRESS_ERROR(view: self.view, error: "JSON Error")
+                }
+                let responseString = String(data: data, encoding: .utf8)
+                print("responseString = \(responseString ?? "Nil")")
+            }
+        }
+        task.resume()
+    }
     
     // MARK :- User Response
     func checkUserResponse(user : User)  {
@@ -129,11 +163,8 @@ class SignUpCustomerViewController: UIViewController {
         print(user.user_name as Any )
         GlobalData.shared.saveUser(obj: user)
         performSegue(withIdentifier: "segueCustomer", sender: nil)
+        
     }
-    
-
-    
-    
     func validatinSignUp() -> Bool {
         
         if (textUserName.text?.isEmpty)! {

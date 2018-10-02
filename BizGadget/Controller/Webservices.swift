@@ -107,13 +107,14 @@ class Webservices: NSObject {
                          "latitude": latitude,
                          "longitude": longitude,
                          "accuracy": accuracy,
-                         "tags": tags] as [String : Any]
+                         "tags": [tags]] as [String : Any]
         
         Alamofire.request("https://biz-gadget.herokuapp.com/api/commons/signup",
             method: .post,
             parameters: parameters,
             encoding: JSONEncoding.default,
-            headers: headers).responseJSON {
+            headers: nil).responseJSON {
+                
                 response in
                 print("\n Signin Response =\(response.result.value ?? "Not yet ")")
                 
@@ -139,8 +140,8 @@ class Webservices: NSObject {
                 if response.result.isFailure {
                     failure(response.result.error?.localizedDescription ?? "error")
                 }
+            }
         }
-    }
     
     func randomString(length: Int) -> String {
         let letters : NSString = WEB_DEFAULT as NSString

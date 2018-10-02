@@ -2,4 +2,198 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BizGadget/View/Login/SignUpOwnerViewController.swift"
+            timestampString = "560174743.331525"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "signUp(user_name:email:password:mobile:business_name:business_owner_first_name:business_owner_last_name:business_mobile:business_address:latitude:longitude:tags:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BizGadget/View/Login/SignUpOwnerViewController.swift"
+            timestampString = "560174743.332204"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "signUp(user_name:email:password:mobile:business_name:business_owner_first_name:business_owner_last_name:business_mobile:business_address:latitude:longitude:tags:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BizGadget/View/Login/SignUpOwnerViewController.swift"
+            timestampString = "560174743.332487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "signUp(user_name:email:password:mobile:business_name:business_owner_first_name:business_owner_last_name:business_mobile:business_address:latitude:longitude:tags:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BizGadget/View/Login/SignUpOwnerViewController.swift"
+            timestampString = "560174743.332736"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "signUp(user_name:email:password:mobile:business_name:business_owner_first_name:business_owner_last_name:business_mobile:business_address:latitude:longitude:tags:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BizGadget.SignUpOwnerViewController.signUp(user_name: Swift.String, email: Swift.String, password: Swift.String, mobile: Swift.String, business_name: Swift.String, business_owner_first_name: Swift.String, business_owner_last_name: Swift.String, business_mobile: Swift.String, business_address: Swift.String, latitude: Swift.Double, longitude: Swift.Double, tags: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "BizGadget"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/Client/Prassana/BizGadget/BizGadget/BizGadget/View/Login/SignUpOwnerViewController.swift"
+                  timestampString = "560174743.598322"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "1300">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BizGadget.SignUpOwnerViewController.signUp(user_name: Swift.String, email: Swift.String, password: Swift.String, mobile: Swift.String, business_name: Swift.String, business_owner_first_name: Swift.String, business_owner_last_name: Swift.String, business_mobile: Swift.String, business_address: Swift.String, latitude: Swift.Double, longitude: Swift.Double, tags: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "BizGadget"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/Client/Prassana/BizGadget/BizGadget/BizGadget/View/Login/SignUpOwnerViewController.swift"
+                  timestampString = "560174743.600401"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "4884">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BizGadget/View/Login/SignUpOwnerViewController.swift"
+            timestampString = "560174743.332981"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "signUp(user_name:email:password:mobile:business_name:business_owner_first_name:business_owner_last_name:business_mobile:business_address:latitude:longitude:tags:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BizGadget/View/Login/SignUpOwnerViewController.swift"
+            timestampString = "560174743.333238"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "signUp(user_name:email:password:mobile:business_name:business_owner_first_name:business_owner_last_name:business_mobile:business_address:latitude:longitude:tags:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BizGadget/View/Login/SignUpOwnerViewController.swift"
+            timestampString = "560174743.333473"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "signUp(user_name:email:password:mobile:business_name:business_owner_first_name:business_owner_last_name:business_mobile:business_address:latitude:longitude:tags:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BizGadget.SignUpOwnerViewController.signUp(user_name: Swift.String, email: Swift.String, password: Swift.String, mobile: Swift.String, business_name: Swift.String, business_owner_first_name: Swift.String, business_owner_last_name: Swift.String, business_mobile: Swift.String, business_address: Swift.String, latitude: Swift.Double, longitude: Swift.Double, tags: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "BizGadget"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/Client/Prassana/BizGadget/BizGadget/BizGadget/View/Login/SignUpOwnerViewController.swift"
+                  timestampString = "560174743.6114939"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "564">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BizGadget.SignUpOwnerViewController.signUp(user_name: Swift.String, email: Swift.String, password: Swift.String, mobile: Swift.String, business_name: Swift.String, business_owner_first_name: Swift.String, business_owner_last_name: Swift.String, business_mobile: Swift.String, business_address: Swift.String, latitude: Swift.Double, longitude: Swift.Double, tags: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "BizGadget"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/Client/Prassana/BizGadget/BizGadget/BizGadget/View/Login/SignUpOwnerViewController.swift"
+                  timestampString = "560174743.61303"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BizGadget/View/Login/SignUpOwnerViewController.swift"
+            timestampString = "560174743.333711"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "signUp(user_name:email:password:mobile:business_name:business_owner_first_name:business_owner_last_name:business_mobile:business_address:latitude:longitude:tags:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
