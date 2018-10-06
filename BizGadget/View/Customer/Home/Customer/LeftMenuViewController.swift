@@ -10,9 +10,13 @@ import UIKit
 
 class LeftMenuViewController: UIViewController {
 
+    
+    
  //   @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var imagePhoto: BigzGadgetImage!
     @IBOutlet weak var lblemail: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -26,9 +26,13 @@ class CustomerHomeViewController: UIViewController {
         getNotification()
         getAllTags()
         
+        
         // define intrest add to array for intrest
         let defaults = UserDefaults.standard
         aryIntrest = defaults.stringArray(forKey: "tags") ?? [String]()
+        
+        
+        
         
         // call services favourite background
         DispatchQueue.global(qos: .background).async {
