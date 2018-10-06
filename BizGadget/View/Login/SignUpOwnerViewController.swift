@@ -72,36 +72,11 @@ class SignUpOwnerViewController: UIViewController {
     @IBAction func btnRegister(_ sender: BizGadgetButton) {
         
         if signUpValidation() {
-            print("Sign up .....")
-            print("Done .......")
             let str = self.textTag.text ?? " "
             var arrayString = str.components(separatedBy: " ")
             if arrayString.last == "" {
                 arrayString.removeLast()
             }
-            
-//            Webservices.shared.SignUpBusiness(user_name: self.textUserName.text ?? " ",
-//                                              email: self.textEmail.text ?? " ",
-//                                              password: self.textPassword.text ?? " ",
-//                                              mobile: self.textEmail.text ?? " ",
-//                                              type: USER_OWNER,
-//                                              business_name: self.textBussinessName.text ?? " ",
-//                                              business_owner_first_name: self.textFirstName.text ?? " ",
-//                                              business_owner_last_name: self.textLastName.text ?? " ",
-//                                              business_address: self.textAddress.text ?? " ",
-//                                              business_mobile: self.textMobileNumber.text ?? " ",
-//                                              latitude: "",
-//                                              longitude: "",
-//                                              accuracy: "15",
-//                                              tags: ["chinese", "indian", "veg"],
-//                                              image0: imageProfile.image!,
-//                                              success: {
-//                                                success in
-//            }, failure: {
-//                error in
-//            })
-//        }
-            
             self.signUp(user_name: self.textUserName.text ?? " ",
                         email: self.textEmail.text ?? " ",
                         password: self.textPassword.text ?? " ",
@@ -176,11 +151,9 @@ class SignUpOwnerViewController: UIViewController {
     
     // MARK :- User Response
     func checkUserResponse(user : User)  {
-        
         print(user.user_name as Any )
         GlobalData.shared.saveUser(obj: user)
         performSegue(withIdentifier: "segueOwner", sender: nil)
-        
     }
 
     
@@ -247,12 +220,9 @@ extension SignUpOwnerViewController:CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
-        
         // Call stopUpdatingLocation() to stop listening for location updates,
         // other wise this function will be called every time when user location changes.
-        
         // manager.stopUpdatingLocation()
-        
         print("user latitude = \(userLocation.coordinate.latitude)")
         print("user longitude = \(userLocation.coordinate.longitude)")
         self.lat = userLocation.coordinate.latitude
@@ -260,8 +230,7 @@ extension SignUpOwnerViewController:CLLocationManagerDelegate {
         manager.stopUpdatingLocation()
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
-    {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error \(error)")
     }
 }

@@ -33,7 +33,7 @@ class CustomerHomeViewController: UIViewController {
         // call services favourite background
         DispatchQueue.global(qos: .background).async {
             print("This is run on the background queue")
-            self.favouriteList()
+            self.setFavouriteList()
             DispatchQueue.main.async {
                 print("This is run on the main queue, after the previous code in outer block")
                 self.tableFavorites.reloadData()
@@ -150,18 +150,16 @@ class CustomerHomeViewController: UIViewController {
     }
     
     
-    // MARK :- intrest and favourites Button Drower
+    // MARK: - Intrest and favourites Button Drower
+    // intrest drower
     @IBOutlet weak var viewIntrests: UIView!
     @IBOutlet weak var tableIntrests: UITableView!
     @IBOutlet weak var intrestesHight: NSLayoutConstraint!
-    
+    // favourite drower
     @IBOutlet weak var viewFavourites: UIView!
     @IBOutlet weak var tableFavorites: UITableView!
     @IBOutlet weak var favouritesHight: NSLayoutConstraint!
 
-    
-    
-    
     var aryFavourites=[Favourite]()
     var intrestesClicked:Bool = true
     var favouriteClicked: Bool = true
@@ -187,7 +185,7 @@ class CustomerHomeViewController: UIViewController {
         dropShadow(view: viewFavourites)
     }
     
-    func intrestDrower()  {
+    func setIntrestDrower()  {
         if intrestesClicked {
             self.intrestesHight.constant = 250
             UIView.animate(withDuration: 0.5) {
@@ -202,7 +200,7 @@ class CustomerHomeViewController: UIViewController {
         intrestesClicked = !intrestesClicked
     }
     
-    func favouritesDrower()  {
+    func setFavouritesDrower()  {
         if favouriteClicked {
             self.favouritesHight.constant = 250
             UIView.animate(withDuration: 0.5) {
@@ -218,7 +216,7 @@ class CustomerHomeViewController: UIViewController {
     }
     
     // favourite List
-    func favouriteList()  {
+    func setFavouriteList()  {// call background
         Webservices.shared.FavouritesList(success: {
             aryFavourute in
             self.aryFavourites = aryFavourute
@@ -230,16 +228,16 @@ class CustomerHomeViewController: UIViewController {
     
     @IBAction func btnIntrestClicked(_ sender: UIButton) {
         if !favouriteClicked {
-            favouritesDrower()
+            setFavouritesDrower()
         }
-        intrestDrower()
+        setIntrestDrower()
     }
     
     @IBAction func btnFavouriteClicked(_ sender: UIButton) {
         if !intrestesClicked {
-          intrestDrower()
+          setIntrestDrower()
         }
-        favouritesDrower()
+        setFavouritesDrower()
     }
 
     // MARK: - Navigation
@@ -264,7 +262,7 @@ class CustomerHomeViewController: UIViewController {
 
 
 
-
+ // MARK: - UITableview delegate
 extension CustomerHomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -299,7 +297,7 @@ extension CustomerHomeViewController : UITableViewDataSource, UITableViewDelegat
             print("STR =\(strLogo)")
             cell.imagePhoto.sd_setImage(with: URL(string:strLogo), placeholderImage: UIImage(named: "placeholder.png"))
 
-            
+            // MARK: - UITableviewcell delegate
             cell.OptionDelegate = self
             cell.LikeDelegate = self
             cell.FavouriteDelegate = self
@@ -329,35 +327,50 @@ extension CustomerHomeViewController : UITableViewDataSource, UITableViewDelegat
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if tableView == homeTableView {
-             let name = aryHome[indexPath.row]
-            print("Home Data =\(name)")
+            tableHomeSelected(row: indexPath.row)
         } else if tableView == tableIntrests {
-            let name = aryIntrest[indexPath.row]
-            self.intrestDrower()
-            print("Name = \(name)")
-            
-            // add filter og Feeds Array
-            aryHome = tempAryHome
-            var temp1Ary=[Feed]()
-            for i in 0..<aryHome.count{
-                let obj = aryHome[i]
-                if obj.category == name {
-                   temp1Ary.append(obj)
-                }
-            }
-            if temp1Ary.count == 0 {
-                Alert.showAlert(message: "No record show", viewController: self)
-            } else {
-                aryHome=temp1Ary
-                self.homeTableView.reloadData()
-            }
+            tableIntrestSelected(row: indexPath.row)
         } else {
-            let name = aryFavourites[indexPath.row]
-            self.favouritesDrower()
-            print("Name = \(name.name ?? "nil")")
+           tablefavouriteSelected(row: indexPath.row)
         }
     }
+    
+    // selected button
+    func tableHomeSelected(row:Int) {
+        let name = aryHome[row]
+        print("Home Data =\(name)")
+    }
+    
+    func tableIntrestSelected(row:Int)  {
+        let name = aryIntrest[row]
+        self.setIntrestDrower()// close drower if selected
+        print("Name = \(name)")
+        // add filter og Feeds Array
+        aryHome = tempAryHome
+        var tempAry=[Feed]()
+        for i in 0..<aryHome.count{
+            let obj = aryHome[i]
+            if obj.category == name {// check intrest and set home tableview
+                tempAry.append(obj)
+            }
+        }
+        if tempAry.count == 0 {
+            Alert.showAlert(message: "No record show", viewController: self)
+        } else {
+            aryHome=tempAry
+            self.homeTableView.reloadData()
+        }
+    }
+    
+    func tablefavouriteSelected(row:Int) {
+        let name = aryFavourites[row]
+        self.setFavouritesDrower()// close drower if selected
+        print("Name = \(name.name ?? "nil")")
+    }
+    
+    
 }
 
 
@@ -392,10 +405,6 @@ extension CustomerHomeViewController : OptionButtonDelegate,LikeButtonDelegate, 
             obj.feedId = objFav.id ?? 0
             self.present(obj, animated: true, completion: nil)
         }
-        
-        
-        
-        
     }
     
     func didPressPhoneButton(cell: HomeTableViewCell) {

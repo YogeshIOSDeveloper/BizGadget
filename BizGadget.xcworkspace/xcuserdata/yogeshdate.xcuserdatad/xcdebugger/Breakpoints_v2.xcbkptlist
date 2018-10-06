@@ -74,12 +74,12 @@
                   moduleName = "BizGadget"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Development/Client/Prassana/BizGadget/BizGadget/BizGadget/View/Login/SignUpOwnerViewController.swift"
-                  timestampString = "560174743.598322"
+                  timestampString = "560533348.5219361"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "162"
                   endingLineNumber = "162"
-                  offsetFromSymbolStart = "1300">
+                  offsetFromSymbolStart = "2043">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -89,12 +89,12 @@
                   moduleName = "BizGadget"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Development/Client/Prassana/BizGadget/BizGadget/BizGadget/View/Login/SignUpOwnerViewController.swift"
-                  timestampString = "560174743.600401"
+                  timestampString = "560533348.524179"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "162"
                   endingLineNumber = "162"
-                  offsetFromSymbolStart = "4884">
+                  offsetFromSymbolStart = "7458">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -154,12 +154,12 @@
                   moduleName = "BizGadget"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Development/Client/Prassana/BizGadget/BizGadget/BizGadget/View/Login/SignUpOwnerViewController.swift"
-                  timestampString = "560174743.6114939"
+                  timestampString = "560533348.538651"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "146"
                   endingLineNumber = "146"
-                  offsetFromSymbolStart = "564">
+                  offsetFromSymbolStart = "763">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -169,12 +169,12 @@
                   moduleName = "BizGadget"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/Development/Client/Prassana/BizGadget/BizGadget/BizGadget/View/Login/SignUpOwnerViewController.swift"
-                  timestampString = "560174743.61303"
+                  timestampString = "560533348.5406179"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "148"
                   endingLineNumber = "148"
-                  offsetFromSymbolStart = "36">
+                  offsetFromSymbolStart = "44">
                </Location>
             </Locations>
          </BreakpointContent>

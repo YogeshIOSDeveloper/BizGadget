@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         getCategory()
         getAllTags()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -48,8 +49,8 @@ class HomeViewController: UIViewController {
             error in
             PROGRESS_ERROR(view: self.view, error: error)
         })
-        
     }
+    
     func setDelegate()  {
         myTable.register(UINib(nibName: "BusinessCell", bundle: nil), forCellReuseIdentifier: "cellBusiness")
         myTable.dataSource = self
@@ -124,12 +125,10 @@ class HomeViewController: UIViewController {
     @objc func getNotificationName(notification: NSNotification) {
         
         if notification.name == NOTIFICATION_PROFILE_OWNER {
-            
             let storyBoard: UIStoryboard = UIStoryboard(name: "Customer", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
             NotificationCenter.default.removeObserver(NOTIFICATION_PROFILE_OWNER)
             self.navigationController?.pushViewController(newViewController, animated: true)
-
         }
         if notification.name == NOTIFICATION_FEEDBACK_OWNER {
             let storyboard: UIStoryboard = UIStoryboard(name: "Customer", bundle: nil)
@@ -191,7 +190,7 @@ class HomeViewController: UIViewController {
 
 
 
-
+ // MARK: - UITableView Delegate
 extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -223,7 +222,7 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
 }
 
 
-
+// MARK: - Business Delegate
 extension HomeViewController : BusinessDelegateDelegate,BusinessEditDelegate {
     
     func didPressDeleteBtn(cell : BusinessCell) {
@@ -272,7 +271,3 @@ extension HomeViewController : BusinessDelegateDelegate,BusinessEditDelegate {
     }
     
 }
-
-
-
-

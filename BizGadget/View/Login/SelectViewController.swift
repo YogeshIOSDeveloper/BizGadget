@@ -23,6 +23,7 @@ class SelectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         user = USER_CUSTOMER
         switchBusiness.setOn(false, animated: true)
     }

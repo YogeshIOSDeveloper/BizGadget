@@ -14,8 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textUserName: BizGadgetTextField!
     @IBOutlet weak var textPassword: BizGadgetTextField!
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,8 +40,6 @@ class LoginViewController: UIViewController {
         
         let str = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         lblName.attributedText = addSeeMore(str: str, maxLength: 20)
-        
-
     }
     
     func addSeeMore(str: String, maxLength: Int) -> NSAttributedString {

@@ -18,7 +18,6 @@ class SignUpCustomerViewController: UIViewController {
     @IBOutlet weak var textConfirmPwd: BizGadgetTextField!
     @IBOutlet weak var textTag: BizGadgetTextField!
 
-    
     var locationManager:CLLocationManager!
     var lat:Double?
     var long:Double?

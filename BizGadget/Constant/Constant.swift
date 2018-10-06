@@ -49,6 +49,8 @@ let IMAGE_URL                    = "https://biz-gadget.herokuapp.com"
 let IMAGE_URL_CONSUMER           = "https://biz-gadget.herokuapp.com/consumers"
 
 
+
+
 // PROGRESS
 let hudProgress = JGProgressHUD(style: .dark)
 func PROGRESS_SHOW(view : UIView) {
